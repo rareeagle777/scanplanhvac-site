@@ -1,31 +1,241 @@
-
-ScanPlanHVAC
-LiDAR-powered room scanning, floor plans, and HVAC load calculations — built for contractors and energy auditors.
-LiDAR Scanning
-2D Floor Plans
-Wall Measurements
-USDZ Export
-PDF Reports
-Manual J Calcs
-
-About the App
-ScanPlanHVAC turns your iPhone's LiDAR sensor into a professional measurement tool. Scan rooms to capture 3D models, automatically generate 2D floor plans with compass-corrected wall orientations, and export detailed PDF reports — all from the job site.
-Designed for HVAC contractors who need fast, accurate building data for load calculations and system sizing.
-
-Screenshots scan floor plan report
-Screenshots coming soon.
-
-Support
-Having trouble or have a feature request? Reach out and we'll get back to you as quickly as possible.
-Email: support@scanplanhvac.com
-
-Privacy Policy
-Effective date: March 21, 2026
-Data collection. ScanPlanHVAC processes LiDAR scan data, room measurements, and building information solely on your device. We do not collect, transmit, or store any personal data or scan data on external servers.
-Third-party services. The app does not integrate with third-party analytics, advertising, or tracking services.
-Camera & sensor access. The app requires access to your device's camera and LiDAR sensor to perform room scans, and to the compass for wall orientation data. This data remains on your device and is not shared.
-Data storage. All project data, scans, and reports are stored locally on your device. You control your data — deleting a project removes all associated data permanently.
-Children's privacy. This app is not directed at children under 13 and does not knowingly collect information from children.
-Changes. We may update this policy from time to time. Changes will be posted on this page with an updated effective date.
-Contact. Questions about this policy? Email support@scanplanhvac.com.
-ScanPlanHVAC · © 2026 · All rights reserved.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScanPlanHVAC — LiDAR Floor Plans for HVAC Pros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0A84FF;
+    --blue-dim: #0A84FF22;
+    --dark: #0C0C0E;
+    --card: #18181B;
+    --card-border: #27272A;
+    --text: #FAFAFA;
+    --text-mid: #A1A1AA;
+    --text-dim: #71717A;
+    --accent: #22D3EE;
+    --accent-dim: #22D3EE18;
+    --green: #34D399;
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--card-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--card-border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    padding: 80px 0 48px;
+    text-align: center;
+  }
+  .app-icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--blue), var(--accent));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    box-shadow: 0 0 60px var(--blue-dim);
+  }
+  .app-icon svg { width: 44px; height: 44px; fill: white; }
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+  h1 span { color: var(--accent); }
+  .tagline {
+    font-size: 1.15rem;
+    color: var(--text-mid);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 36px 0 56px;
+  }
+  .pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--card-border);
+    background: var(--card);
+    color: var(--text-mid);
+    white-space: nowrap;
+  }
+  .pill::before {
+    content: '▸ ';
+    color: var(--accent);
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 20px;
+  }
+  section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  section h2 .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-blue { background: var(--blue); }
+  .dot-green { background: var(--green); }
+  .dot-cyan { background: var(--accent); }
+  section p, section li {
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  section ul {
+    list-style: none;
+    padding: 0;
+  }
+  section ul li {
+    padding: 4px 0;
+  }
+  section ul li::before {
+    content: '—';
+    color: var(--text-dim);
+    margin-right: 10px;
+  }
+  .screenshots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .screenshot-placeholder {
+    aspect-ratio: 9 / 19.5;
+    border-radius: 10px;
+    border: 1px dashed var(--card-border);
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  a.email-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-dim);
+    transition: border-color 0.2s;
+  }
+  a.email-link:hover {
+    border-color: var(--accent);
+  }
+  .privacy p + p { margin-top: 12px; }
+  footer {
+    text-align: center;
+    padding: 48px 0 64px;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+  }
+  footer span { color: var(--text-mid); }
+  @media (max-width: 520px) {
+    header { padding: 56px 0 36px; }
+    h1 { font-size: 1.8rem; }
+    .tagline { font-size: 1rem; }
+    section { padding: 24px; }
+    .screenshots { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="app-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v2h-4V7zm0 4h4v2h-4v-2zm-6 4h10v2H7v-2z"/>
+      </svg>
+    </div>
+    <h1>Scan<span>Plan</span>HVAC</h1>
+    <p class="tagline">LiDAR-powered room scanning, floor plans, and HVAC load calculations — built for contractors and energy auditors.</p>
+  </header>
+  <div class="features">
+    <span class="pill">LiDAR Scanning</span>
+    <span class="pill">2D Floor Plans</span>
+    <span class="pill">Wall Measurements</span>
+    <span class="pill">USDZ Export</span>
+    <span class="pill">PDF Reports</span>
+    <span class="pill">Manual J Calcs</span>
+  </div>
+  <section>
+    <h2><span class="dot dot-blue"></span>About the App</h2>
+    <p>ScanPlanHVAC turns your iPhone's LiDAR sensor into a professional measurement tool. Scan rooms to capture 3D models, automatically generate 2D floor plans with compass-corrected wall orientations, and export detailed PDF reports — all from the job site.</p>
+    <p style="margin-top:12px;">Designed for HVAC contractors who need fast, accurate building data for load calculations and system sizing.</p>
+  </section>
+  <section>
+    <h2><span class="dot dot-cyan"></span>Screenshots</h2>
+    <div class="screenshots">
+      <div class="screenshot-placeholder">scan</div>
+      <div class="screenshot-placeholder">floor plan</div>
+      <div class="screenshot-placeholder">report</div>
+    </div>
+    <p style="margin-top:16px; font-size:0.82rem; color:var(--text-dim);">Screenshots coming soon.</p>
+  </section>
+  <section>
+    <h2><span class="dot dot-green"></span>Support</h2>
+    <p>Having trouble or have a feature request? Reach out and we'll get back to you as quickly as possible.</p>
+    <p style="margin-top:12px;">Email: <a class="email-link" href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a></p>
+  </section>
+  <section class="privacy">
+    <h2><span class="dot dot-cyan"></span>Privacy Policy</h2>
+    <p><strong style="color:var(--text);">Effective date:</strong> March 21, 2026</p>
+    <p><strong style="color:var(--text);">Data collection.</strong> ScanPlanHVAC processes LiDAR scan data, room measurements, and building information solely on your device. We do not collect, transmit, or store any personal data or scan data on external servers.</p>
+    <p><strong style="color:var(--text);">Third-party services.</strong> The app does not integrate with third-party analytics, advertising, or tracking services.</p>
+    <p><strong style="color:var(--text);">Camera &amp; sensor access.</strong> The app requires access to your device's camera and LiDAR sensor to perform room scans, and to the compass for wall orientation data. This data remains on your device and is not shared.</p>
+    <p><strong style="color:var(--text);">Data storage.</strong> All project data, scans, and reports are stored locally on your device. You control your data — deleting a project removes all associated data permanently.</p>
+    <p><strong style="color:var(--text);">Children's privacy.</strong> This app is not directed at children under 13 and does not knowingly collect information from children.</p>
+    <p><strong style="color:var(--text);">Changes.</strong> We may update this policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+    <p><strong style="color:var(--text);">Contact.</strong> Questions about this policy? Email <a class="email-link" href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a>.</p>
+  </section>
+  <footer>
+    <span>ScanPlanHVAC</span> · © 2026 · All rights reserved.
+  </footer>
+</div>
+</body>
+</html>
