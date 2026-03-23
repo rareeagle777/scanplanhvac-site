@@ -3,7 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ScanPlanHVAC — LiDAR Floor Plans for HVAC Pros</title>
+<title>ScanPlanHVAC — LiDAR Floor Plans & HVAC Load Calculations for iPhone</title>
+<meta name="description" content="Scan rooms with LiDAR, generate 2D floor plans with compass-corrected measurements, and calculate HVAC loads — all from your iPhone. Built for HVAC contractors and energy auditors.">
+<meta name="keywords" content="HVAC load calculation, Manual J calculator, LiDAR floor plan, room scanning app, HVAC contractor tool, energy audit app, iPhone LiDAR, building measurement">
+<link rel="canonical" href="https://scanplanhvac.com/">
+
+<!-- Open Graph (Facebook, iMessage, Slack, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scanplanhvac.com/">
+<meta property="og:title" content="ScanPlanHVAC — LiDAR Floor Plans for HVAC Pros">
+<meta property="og:description" content="Scan rooms with LiDAR, generate floor plans, and calculate HVAC loads — all from your iPhone. Built for contractors and energy auditors.">
+<meta property="og:image" content="https://scanplanhvac.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ScanPlanHVAC — LiDAR Floor Plans for HVAC Pros">
+<meta name="twitter:description" content="Scan rooms with LiDAR, generate floor plans, and calculate HVAC loads — all from your iPhone.">
+<meta name="twitter:image" content="https://scanplanhvac.com/images/og-image.png">
+
+<!-- Structured Data for Software Application -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ScanPlanHVAC",
+  "operatingSystem": "iOS",
+  "applicationCategory": "BusinessApplication",
+  "description": "LiDAR-powered room scanning, floor plans, and HVAC load calculations for iPhone. Built for HVAC contractors and energy auditors.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -140,24 +176,72 @@
     color: var(--text-dim);
     margin-right: 10px;
   }
+
+  /* How It Works */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .step {
+    text-align: center;
+  }
+  .step-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .step-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .step-desc {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+
+  /* Screenshots */
   .screenshots {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-top: 20px;
   }
-  .screenshot-placeholder {
+  .screenshot-frame {
     aspect-ratio: 9 / 19.5;
     border-radius: 10px;
-    border: 1px dashed var(--card-border);
+    border: 1px solid var(--card-border);
     background: var(--dark);
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .screenshot-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .screenshot-placeholder {
     color: var(--text-dim);
     font-size: 0.75rem;
     font-family: 'JetBrains Mono', monospace;
   }
+  .screenshot-label {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-dim);
+  }
+
   a.email-link {
     color: var(--accent);
     text-decoration: none;
@@ -181,6 +265,7 @@
     .tagline { font-size: 1rem; }
     section { padding: 24px; }
     .screenshots { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   }
 </style>
 </head>
@@ -203,25 +288,76 @@
     <span class="pill">PDF Reports</span>
     <span class="pill">Manual J Calcs</span>
   </div>
+
   <section>
     <h2><span class="dot dot-blue"></span>About the App</h2>
     <p>ScanPlanHVAC turns your iPhone's LiDAR sensor into a professional measurement tool. Scan rooms to capture 3D models, automatically generate 2D floor plans with compass-corrected wall orientations, and export detailed PDF reports — all from the job site.</p>
     <p style="margin-top:12px;">Designed for HVAC contractors who need fast, accurate building data for load calculations and system sizing.</p>
   </section>
+
+  <section>
+    <h2><span class="dot dot-cyan"></span>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <div class="step-label">Scan</div>
+        <div class="step-desc">Walk the room with your iPhone's LiDAR sensor</div>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <div class="step-label">Measure</div>
+        <div class="step-desc">Walls, doors, and windows detected automatically</div>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <div class="step-label">Plan</div>
+        <div class="step-desc">2D floor plan with compass-corrected orientations</div>
+      </div>
+      <div class="step">
+        <div class="step-number">04</div>
+        <div class="step-label">Report</div>
+        <div class="step-desc">Export PDF reports with all building data</div>
+      </div>
+    </div>
+  </section>
+
   <section>
     <h2><span class="dot dot-cyan"></span>Screenshots</h2>
     <div class="screenshots">
-      <div class="screenshot-placeholder">scan</div>
-      <div class="screenshot-placeholder">floor plan</div>
-      <div class="screenshot-placeholder">report</div>
+      <!-- Replace placeholders with real screenshots:
+           1. Take screenshots on your iPhone
+           2. Save as images/scan.png, images/floorplan.png, images/report.png
+           3. Remove the <span> placeholder and uncomment the <img> tag -->
+      <div>
+        <div class="screenshot-frame">
+          <!-- <img src="images/scan.png" alt="LiDAR room scanning in ScanPlanHVAC" loading="lazy"> -->
+          <span class="screenshot-placeholder">scan</span>
+        </div>
+        <div class="screenshot-label">Room Scan</div>
+      </div>
+      <div>
+        <div class="screenshot-frame">
+          <!-- <img src="images/floorplan.png" alt="2D floor plan with wall measurements and orientations" loading="lazy"> -->
+          <span class="screenshot-placeholder">floor plan</span>
+        </div>
+        <div class="screenshot-label">Floor Plan</div>
+      </div>
+      <div>
+        <div class="screenshot-frame">
+          <!-- <img src="images/report.png" alt="PDF report with HVAC building envelope data" loading="lazy"> -->
+          <span class="screenshot-placeholder">report</span>
+        </div>
+        <div class="screenshot-label">PDF Report</div>
+      </div>
     </div>
-    <p style="margin-top:16px; font-size:0.82rem; color:var(--text-dim);">Screenshots coming soon.</p>
   </section>
+
   <section>
     <h2><span class="dot dot-green"></span>Support</h2>
     <p>Having trouble or have a feature request? Reach out and we'll get back to you as quickly as possible.</p>
     <p style="margin-top:12px;">Email: <a class="email-link" href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a></p>
   </section>
+
   <section class="privacy">
     <h2><span class="dot dot-cyan"></span>Privacy Policy</h2>
     <p><strong style="color:var(--text);">Effective date:</strong> March 21, 2026</p>
@@ -233,6 +369,7 @@
     <p><strong style="color:var(--text);">Changes.</strong> We may update this policy from time to time. Changes will be posted on this page with an updated effective date.</p>
     <p><strong style="color:var(--text);">Contact.</strong> Questions about this policy? Email <a class="email-link" href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a>.</p>
   </section>
+
   <footer>
     <span>ScanPlanHVAC</span> · © 2026 · All rights reserved.
   </footer>
