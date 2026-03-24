@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScanPlan HVAC - Updates</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+        h1 { color: #007AFF; margin-bottom: 40px; }
+        .release {
+            background: white;
+            border-left: 4px solid #007AFF;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .release-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .release-title { font-size: 1.4em; font-weight: bold; color: #333; }
+        .release-tag {
+            background: #007AFF;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9em;
+        }
+        .release-date { color: #666; font-size: 0.9em; margin-bottom: 15px; }
+        .release-notes ul { margin: 0; padding-left: 20px; }
+        .release-notes li { margin: 8px 0; color: #444; }
+    </style>
+</head>
+<body>
+    <h1>📱 ScanPlan HVAC - What's New</h1>
+    <div id="updates"></div>
+    <script>
+        fetch('changelog.json')
+            .then(response => response.json())
+            .then(data => {
+                const html = data.updates.map(update => {
+                    const date = new Date(update.date).toLocaleDateString('en-US', {
+                        year: 'numeric', month: 'long', day: 'numeric'
+                    });
+                    return `
+                        <div class="release">
+                            <div class="release-header">
+                                <span class="release-title">${update.title}</span>
+                                <span class="release-tag">v${update.version}</span>
+                            </div>
+                            <div class="release-date">${date}</div>
+                            <div class="release-notes">
+                                <ul>${update.notes.map(n => `<li>${n}</li>`).join('')}</ul>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                document.getElementById('updates').innerHTML = html;
+            });
+    </script>
+</body>
+</html>

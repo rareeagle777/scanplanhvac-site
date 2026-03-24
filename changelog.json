@@ -1,0 +1,24 @@
+{
+  "updates": [
+    {
+      "version": "1.0.1",
+      "date": "2026-03-24",
+      "title": "Bug Fix Release",
+      "notes": [
+        "Fixed compatibility issue on iPad Air and devices without LiDAR",
+        "Added clear messaging for device requirements",
+        "Improved user experience for all iPad models"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-03-20",
+      "title": "Initial Release",
+      "notes": [
+        "Room scanning with LiDAR for accurate measurements",
+        "Manual J heat loss and cooling load calculations",
+        "Professional PDF report generation"
+      ]
+    }
+  ]
+}
