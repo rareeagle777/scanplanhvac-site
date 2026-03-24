@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScanPlan HVAC - Updates</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #007AFF;
+            margin-bottom: 40px;
+        }
+        .release {
+            border-left: 4px solid #007AFF;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        .release-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .release-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+        }
+        .release-tag {
+            background: #007AFF;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9em;
+        }
+        .release-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .release-notes {
+            white-space: pre-wrap;
+            color: #444;
+        }
+        .commit-message {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 ScanPlan HVAC Updates</h1>
+    <div id="updates" class="loading">Loading updates...</div>
 
+<script>
+    const REPO_OWNER = 'rareeagle777';
+    const REPO_NAME = 'scanplanhvac-site';  
+        
+        // Fetch releases (for version updates)
+        fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases`)
+            .then(response => response.json())
+            .then(releases => {
+                const updatesDiv = document.getElementById('updates');
+                
+                if (releases.length === 0) {
+                    // If no releases, show recent commits instead
+                    return showCommits();
+                }
+                
+                const html = releases.map(release => {
+                    const date = new Date(release.published_at).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                    
+                    return `
+                        <div class="release">
+                            <div class="release-header">
+                                <span class="release-title">${release.name || 'Release'}</span>
+                                <span class="release-tag">${release.tag_name}</span>
+                            </div>
+                            <div class="release-date">${date}</div>
+                            <div class="release-notes">${release.body || 'No description provided.'}</div>
+                        </div>
+                    `;
+                }).join('');
+                
+                updatesDiv.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error fetching releases:', error);
+                showCommits();
+            });
+        
+        function showCommits() {
+            fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/commits`)
+                .then(response => response.json())
+                .then(commits => {
+                    const updatesDiv = document.getElementById('updates');
+                    
+                    const html = commits.slice(0, 10).map(commit => {
+                        const date = new Date(commit.commit.author.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+                        
+                        return `
+                            <div class="release">
+                                <div class="release-date">${date}</div>
+                                <div class="commit-message">${commit.commit.message.split('\n')[0]}</div>
+                            </div>
+                        `;
+                    }).join('');
+                    
+                    updatesDiv.innerHTML = html;
+                })
+                .catch(error => {
+                    document.getElementById('updates').innerHTML = 
+                        '<p style="color: red;">Error loading updates. Please try again later.</p>';
+                });
+        }
+    </script>
+</body>
+</html>
