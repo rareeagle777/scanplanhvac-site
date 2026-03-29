@@ -11,16 +11,17 @@
             margin: 40px auto;
             padding: 0 20px;
             line-height: 1.6;
-            background: #f5f5f5;
         }
-        h1 { color: #007AFF; margin-bottom: 40px; }
+        h1 {
+            color: #007AFF;
+            margin-bottom: 40px;
+        }
         .release {
-            background: white;
             border-left: 4px solid #007AFF;
             padding: 20px;
             margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: #f9f9f9;
+            border-radius: 4px;
         }
         .release-header {
             display: flex;
@@ -28,7 +29,11 @@
             align-items: center;
             margin-bottom: 10px;
         }
-        .release-title { font-size: 1.4em; font-weight: bold; color: #333; }
+        .release-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+        }
         .release-tag {
             background: #007AFF;
             color: white;
@@ -36,37 +41,68 @@
             border-radius: 12px;
             font-size: 0.9em;
         }
-        .release-date { color: #666; font-size: 0.9em; margin-bottom: 15px; }
-        .release-notes ul { margin: 0; padding-left: 20px; }
-        .release-notes li { margin: 8px 0; color: #444; }
+        .release-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .release-notes {
+            white-space: pre-wrap;
+            color: #444;
+        }
+        .commit-message {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .commit-hash {
+            font-family: monospace;
+            font-size: 0.85em;
+            color: #888;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
     </style>
 </head>
 <body>
-    <h1>📱 ScanPlan HVAC - What's New</h1>
-    <div id="updates"></div>
-    <script>
-        fetch('changelog.json')
-            .then(response => response.json())
-            .then(data => {
-                const html = data.updates.map(update => {
-                    const date = new Date(update.date).toLocaleDateString('en-US', {
-                        year: 'numeric', month: 'long', day: 'numeric'
-                    });
-                    return `
-                        <div class="release">
-                            <div class="release-header">
-                                <span class="release-title">${update.title}</span>
-                                <span class="release-tag">v${update.version}</span>
-                            </div>
-                            <div class="release-date">${date}</div>
-                            <div class="release-notes">
-                                <ul>${update.notes.map(n => `<li>${n}</li>`).join('')}</ul>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-                document.getElementById('updates').innerHTML = html;
-            });
-    </script>
+    <h1>📱 ScanPlan HVAC Updates</h1>
+    <div id="updates" class="loading">Loading updates...</div>
+
+<script>
+    // Fetches commits.json from your public repo (synced automatically via GitHub Action)
+    fetch('commits.json')
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to load commits');
+            return response.json();
+        })
+        .then(commits => {
+            const updatesDiv = document.getElementById('updates');
+
+            const html = commits.map(commit => {
+                const date = new Date(commit.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                return `
+                    <div class="release">
+                        <div class="release-date">${date}</div>
+                        <div class="commit-message">${commit.message}</div>
+                        <span class="commit-hash">${commit.hash}</span>
+                    </div>
+                `;
+            }).join('');
+
+            updatesDiv.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error loading updates:', error);
+            document.getElementById('updates').innerHTML =
+                '<p style="color: red;">Error loading updates. Please try again later.</p>';
+        });
+</script>
 </body>
 </html>
