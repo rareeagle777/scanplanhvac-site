@@ -8,7 +8,6 @@
 <meta name="keywords" content="HVAC load calculation, Manual J calculator, LiDAR floor plan, room scanning app, HVAC contractor tool, energy audit app, iPhone LiDAR, building measurement">
 <link rel="canonical" href="https://scanplanhvac.com/">
 
-<!-- Open Graph (Facebook, iMessage, Slack, etc.) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scanplanhvac.com/">
 <meta property="og:title" content="ScanPlanHVAC — LiDAR Floor Plans for HVAC Pros">
@@ -17,13 +16,11 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ScanPlanHVAC — LiDAR Floor Plans for HVAC Pros">
 <meta name="twitter:description" content="Scan rooms with LiDAR, generate floor plans, and calculate HVAC loads — all from your iPhone.">
 <meta name="twitter:image" content="https://scanplanhvac.com/images/og-image.png">
 
-<!-- Structured Data for Software Application -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,7 +55,9 @@
     --green: #34D399;
     --radius: 12px;
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--dark);
@@ -66,6 +65,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
+
   body::before {
     content: '';
     position: fixed;
@@ -78,6 +78,7 @@
     pointer-events: none;
     z-index: 0;
   }
+
   .container {
     position: relative;
     z-index: 1;
@@ -85,10 +86,12 @@
     margin: 0 auto;
     padding: 0 24px;
   }
+
   header {
     padding: 80px 0 48px;
     text-align: center;
   }
+
   .app-icon {
     width: 88px;
     height: 88px;
@@ -100,20 +103,25 @@
     margin-bottom: 28px;
     box-shadow: 0 0 60px var(--blue-dim);
   }
+
   .app-icon svg { width: 44px; height: 44px; fill: white; }
+
   h1 {
     font-size: 2.4rem;
     font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: 12px;
   }
+
   h1 span { color: var(--accent); }
+
   .tagline {
     font-size: 1.15rem;
     color: var(--text-mid);
     max-width: 480px;
     margin: 0 auto;
   }
+
   .app-store-badge {
     display: inline-flex;
     align-items: center;
@@ -128,14 +136,17 @@
     font-size: 0.95rem;
     transition: transform 0.2s, box-shadow 0.2s;
   }
+
   .app-store-badge:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 24px rgba(255,255,255,0.15);
   }
+
   .app-store-badge svg {
     width: 20px;
     height: 24px;
   }
+
   .features {
     display: flex;
     flex-wrap: wrap;
@@ -143,6 +154,7 @@
     justify-content: center;
     margin: 36px 0 56px;
   }
+
   .pill {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem;
@@ -154,10 +166,12 @@
     color: var(--text-mid);
     white-space: nowrap;
   }
+
   .pill::before {
     content: '▸ ';
     color: var(--accent);
   }
+
   section {
     background: var(--card);
     border: 1px solid var(--card-border);
@@ -165,6 +179,7 @@
     padding: 32px;
     margin-bottom: 20px;
   }
+
   section h2 {
     font-size: 1.1rem;
     font-weight: 600;
@@ -172,44 +187,36 @@
     display: flex;
     align-items: center;
     gap: 10px;
-  }
+  }c
+
   section h2 .dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     display: inline-block;
   }
+
   .dot-blue { background: var(--blue); }
   .dot-green { background: var(--green); }
   .dot-cyan { background: var(--accent); }
+
   section p, section li {
     color: var(--text-mid);
     font-size: 0.95rem;
     line-height: 1.7;
   }
-  section ul {
-    list-style: none;
-    padding: 0;
-  }
-  section ul li {
-    padding: 4px 0;
-  }
-  section ul li::before {
-    content: '—';
-    color: var(--text-dim);
-    margin-right: 10px;
-  }
 
-  /* How It Works */
   .steps {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     margin-top: 20px;
   }
+
   .step {
     text-align: center;
   }
+
   .step-number {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.6rem;
@@ -217,25 +224,27 @@
     color: var(--accent);
     margin-bottom: 8px;
   }
+
   .step-label {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 4px;
   }
+
   .step-desc {
     font-size: 0.78rem;
     color: var(--text-dim);
     line-height: 1.4;
   }
 
-  /* Screenshots */
   .screenshots {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-top: 20px;
   }
+
   .screenshot-frame {
     aspect-ratio: 9 / 19.5;
     border-radius: 10px;
@@ -246,17 +255,14 @@
     align-items: center;
     justify-content: center;
   }
+
   .screenshot-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
-  .screenshot-placeholder {
-    color: var(--text-dim);
-    font-size: 0.75rem;
-    font-family: 'JetBrains Mono', monospace;
-  }
+
   .screenshot-label {
     text-align: center;
     margin-top: 8px;
@@ -265,23 +271,45 @@
     color: var(--text-dim);
   }
 
-  a.email-link {
+  a.email-link,
+  a.footer-link,
+  a.legal-link {
     color: var(--accent);
     text-decoration: none;
     border-bottom: 1px solid var(--accent-dim);
     transition: border-color 0.2s;
   }
-  a.email-link:hover {
+
+  a.email-link:hover,
+  a.footer-link:hover,
+  a.legal-link:hover {
     border-color: var(--accent);
   }
-  .privacy p + p { margin-top: 12px; }
+
+  .legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 14px;
+  }
+
   footer {
     text-align: center;
     padding: 48px 0 64px;
     color: var(--text-dim);
     font-size: 0.82rem;
   }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 14px;
+  }
+
   footer span { color: var(--text-mid); }
+
   @media (max-width: 520px) {
     header { padding: 56px 0 36px; }
     h1 { font-size: 1.8rem; }
@@ -289,6 +317,15 @@
     section { padding: 24px; }
     .screenshots { grid-template-columns: repeat(2, 1fr); }
     .steps { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .legal-links,
+    .footer-links {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    footer .footer-links {
+      align-items: center;
+    }
   }
 </style>
 </head>
@@ -307,6 +344,7 @@
       Download on the App Store
     </a>
   </header>
+
   <div class="features">
     <span class="pill">LiDAR Scanning</span>
     <span class="pill">2D Floor Plans</span>
@@ -351,7 +389,7 @@
   <section>
     <h2><span class="dot dot-cyan"></span>Screenshots</h2>
     <div class="screenshots">
-<div>
+      <div>
         <div class="screenshot-frame">
           <img src="Images/scan.png" alt="LiDAR room scanning in ScanPlanHVAC" loading="lazy">
         </div>
@@ -374,10 +412,10 @@
 
   <section>
     <h2><span class="dot dot-blue"></span>Updates</h2>
-    <p>This app is in its early stages. Big updates are continuasly released. Stay updated here.</p>
+    <p>This app is in its early stages. Big updates are continuously released. Stay updated here.</p>
     <p style="margin-top:12px;"><a class="email-link" href="updates.html">View Changelog</a></p>
   </section>
-  
+
   <section>
     <h2><span class="dot dot-green"></span>Support</h2>
     <p>Having trouble or have a feature request? Reach out and we'll get back to you as quickly as possible.</p>
@@ -385,36 +423,28 @@
     <p style="margin-top:12px;"><a class="email-link" href="updates.html">View Updates</a></p>
   </section>
 
-  <section class="privacy">
-    <h2><span class="dot dot-cyan"></span>Terms of Service</h2>
-    <p><strong style="color:var(--text);">Effective date:</strong> March 26, 2026</p>
-    <p>By downloading, installing, or using ScanPlanHVAC, you agree to these Terms of Service. If you do not agree, please do not use the App.</p>
-    <p><strong style="color:var(--text);">Description of service.</strong> The App uses LiDAR technology to scan building interiors, generate 2D floor plans, capture wall/window/door measurements, and assist with HVAC load calculations. It is designed as a tool for HVAC contractors and energy auditors.</p>
-    <p><strong style="color:var(--text);">Use at your own risk.</strong> Measurements, floor plans, calculations, and reports are approximate and provided for informational and planning purposes only. They are not a substitute for professional engineering surveys, certified measurements, or stamped drawings. You are solely responsible for verifying all data before relying on it.</p>
-    <p><strong style="color:var(--text);">Acceptable use.</strong> You agree not to reverse-engineer, decompile, or disassemble any part of the App; use it for any unlawful purpose; redistribute, sublicense, or resell it; or interfere with its functionality.</p>
-    <p><strong style="color:var(--text);">Intellectual property.</strong> All rights, title, and interest in the App remain with the developer. Scan data, floor plans, and reports you create belong to you.</p>
-    <p><strong style="color:var(--text);">Disclaimer of warranties.</strong> The App is provided "as is" without warranties of any kind. The developer does not warrant that the App will be uninterrupted, error-free, or accurate to any particular standard.</p>
-    <p><strong style="color:var(--text);">Limitation of liability.</strong> To the maximum extent permitted by law, the developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App.</p>
-    <p><strong style="color:var(--text);">Governing law.</strong> These Terms are governed by the laws of the State of Maine, United States.</p>
-    <p><strong style="color:var(--text);">Changes.</strong> We may update these Terms from time to time. Changes will be posted on this page with a revised effective date.</p>
-    <p><strong style="color:var(--text);">Contact.</strong> Questions about these Terms? Email <a class="email-link" href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a>.</p>
-  </section>
-  
-  <section class="privacy">
-    <h2><span class="dot dot-cyan"></span>Privacy Policy</h2>
-    <p><strong style="color:var(--text);">Effective date:</strong> March 21, 2026</p>
-    <p><strong style="color:var(--text);">Data collection.</strong> ScanPlanHVAC processes LiDAR scan data, room measurements, and building information solely on your device. We do not collect, transmit, or store any personal data or scan data on external servers.</p>
-    <p><strong style="color:var(--text);">Third-party services.</strong> The app does not integrate with third-party analytics, advertising, or tracking services.</p>
-    <p><strong style="color:var(--text);">Camera &amp; sensor access.</strong> The app requires access to your device's camera and LiDAR sensor to perform room scans, and to the compass for wall orientation data. This data remains on your device and is not shared.</p>
-    <p><strong style="color:var(--text);">Data storage.</strong> All project data, scans, and reports are stored locally on your device. You control your data — deleting a project removes all associated data permanently.</p>
-    <p><strong style="color:var(--text);">Children's privacy.</strong> This app is not directed at children under 13 and does not knowingly collect information from children.</p>
-    <p><strong style="color:var(--text);">Changes.</strong> We may update this policy from time to time. Changes will be posted on this page with an updated effective date.</p>
-    <p><strong style="color:var(--text);">Contact.</strong> Questions about this policy? Email <a class="email-link" href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a>.</p>
-  </section>
+<section>
+  <h2><span class="dot dot-cyan"></span>Legal</h2>
+  <p>By using ScanPlanHVAC, you agree to our Terms of Service and Privacy Policy.</p>
+  <div class="legal-links">
+    <a class="legal-link" href="https://rareeagle777.github.io/scanplanhvac-terms/" target="_blank" rel="noopener">
+      View Terms of Service
+    </a>
+    <a class="legal-link" href="https://rareeagle777.github.io/scanplanhvac-privacy/" target="_blank" rel="noopener">
+      View Privacy Policy
+    </a>
+  </div>
+</section>
 
-  <footer>
-    <span>ScanPlanHVAC</span> · © 2026 · All rights reserved.
-  </footer>
-</div>
-</body>
-</html>
+<section>
+  <h2><span class="dot dot-cyan"></span>Legal</h2>
+  <p>By using ScanPlanHVAC, you agree to our Terms of Service and Privacy Policy.</p>
+  <div class="legal-links">
+    <a class="legal-link" href="https://rareeagle777.github.io/scanplanhvac-terms/" target="_blank" rel="noopener">
+      View Terms of Service
+    </a>
+    <a class="legal-link" href="https://rareeagle777.github.io/scanplanhvac-privacy/" target="_blank" rel="noopener">
+      View Privacy Policy
+    </a>
+  </div>
+</section>
