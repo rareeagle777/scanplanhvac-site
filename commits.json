@@ -1,4 +1,5 @@
 [
+  {"hash": "a99894d", "message": "Fix energy analysis export blank screen and add loading indicator", "date": "2026-04-11T10:00:14-04:00", "author": "Dave"},
   {"hash": "d26bc25", "message": "Make Gas Pipe Sizer chart-driven to prevent unsupported configurations", "date": "2026-04-11T00:55:50-04:00", "author": "Dave"},
   {"hash": "c933ede", "message": "Add energy analysis PDF report with bar charts and export", "date": "2026-04-11T00:53:48-04:00", "author": "Dave"},
   {"hash": "729b70f", "message": "Add room rename, floor plan PDF export, and fix interior door sync", "date": "2026-04-10T20:22:01-04:00", "author": "Dave"},
@@ -17,7 +18,6 @@
   {"hash": "9745897", "message": "v1.1.1: Fix App Review rejection - add subscription access during trial", "date": "2026-03-27T12:22:16-04:00", "author": "Dave"},
   {"hash": "39de2ae", "message": "Fix StoreManager initializer error in SettingsView preview", "date": "2026-03-26T23:35:12-04:00", "author": "Dave"},
   {"hash": "e297c93", "message": "Final: Restore correct GitHub Pages URLs for Terms and Privacy", "date": "2026-03-26T23:10:57-04:00", "author": "Dave"},
-  {"hash": "70eea09", "message": "Fix: Update GitHub Pages URLs and final tweaks", "date": "2026-03-26T23:08:31-04:00", "author": "Dave"},
-  {"hash": "5048bef", "message": "Backup: Complete ScanPlan HVAC v1.0 with subscription system", "date": "2026-03-26T23:06:11-04:00", "author": "Dave"}
+  {"hash": "70eea09", "message": "Fix: Update GitHub Pages URLs and final tweaks", "date": "2026-03-26T23:08:31-04:00", "author": "Dave"}
 
 ]
