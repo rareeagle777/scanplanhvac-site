@@ -1,4 +1,7 @@
 [
+  {"hash": "bb2d573", "message": "Update energy analysis and project dashboard", "date": "2026-04-23T22:07:22+03:00", "author": "Dave"},
+  {"hash": "e933032", "message": "Add Mitsubishi Hyper-Heat single-zone JSON performance curve", "date": "2026-04-13T20:51:17-04:00", "author": "Dave"},
+  {"hash": "2a9cd08", "message": "Improve energy analysis accuracy, COP reporting, and UI validation", "date": "2026-04-11T11:28:35-04:00", "author": "Dave"},
   {"hash": "2bad4e2", "message": "Change default heating season to Oct 1 2015 – Mar 31 2026", "date": "2026-04-11T10:16:44-04:00", "author": "Dave"},
   {"hash": "0946561", "message": "Persist energy analysis inputs per project", "date": "2026-04-11T10:07:37-04:00", "author": "Dave"},
   {"hash": "a99894d", "message": "Fix energy analysis export blank screen and add loading indicator", "date": "2026-04-11T10:00:14-04:00", "author": "Dave"},
@@ -15,9 +18,6 @@
   {"hash": "f2959fb", "message": "Update sync-commits.yml", "date": "2026-03-29T10:28:40-04:00", "author": "rareeagle777"},
   {"hash": "b7897ac", "message": "Update project file", "date": "2026-03-29T10:09:30-04:00", "author": "Dave"},
   {"hash": "9c68365", "message": "Update sync-commits.yml", "date": "2026-03-29T09:52:00-04:00", "author": "rareeagle777"},
-  {"hash": "f748b3f", "message": "Create sync-commits.yml", "date": "2026-03-29T09:45:42-04:00", "author": "rareeagle777"},
-  {"hash": "01e6762", "message": "Add live compass overlay to room scanning interface", "date": "2026-03-29T08:41:04-04:00", "author": "Dave"},
-  {"hash": "9745897", "message": "v1.1.1: Fix App Review rejection - add subscription access during trial", "date": "2026-03-27T12:22:16-04:00", "author": "Dave"},
-  {"hash": "39de2ae", "message": "Fix StoreManager initializer error in SettingsView preview", "date": "2026-03-26T23:35:12-04:00", "author": "Dave"}
+  {"hash": "f748b3f", "message": "Create sync-commits.yml", "date": "2026-03-29T09:45:42-04:00", "author": "rareeagle777"}
 
 ]
