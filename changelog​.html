@@ -52,7 +52,30 @@
         }
         .commit-message {
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+        }
+        .commit-body {
+            color: #555;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        .commit-files {
+            margin-top: 8px;
+            font-size: 0.85em;
+        }
+        .files-label {
+            color: #888;
+            margin-right: 6px;
+        }
+        .file-chip {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #1a56db;
+            border-radius: 4px;
+            padding: 2px 7px;
+            margin: 2px 3px 2px 0;
+            font-family: monospace;
         }
         .loading {
             text-align: center;
@@ -107,30 +130,43 @@
             });
         
         function showCommits() {
-            fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/commits`)
+            fetch('commits.json')
                 .then(response => response.json())
                 .then(commits => {
                     const updatesDiv = document.getElementById('updates');
-                    
+
                     const html = commits.slice(0, 10).map(commit => {
-                        const date = new Date(commit.commit.author.date).toLocaleDateString('en-US', {
+                        const date = new Date(commit.date).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric'
                         });
-                        
+
+                        const bodyHtml = commit.body
+                            ? `<div class="commit-body">${commit.body.replace(/\n/g, '<br>')}</div>`
+                            : '';
+
+                        const filesHtml = commit.files && commit.files.length
+                            ? `<div class="commit-files">
+                                 <span class="files-label">Changed files:</span>
+                                 ${commit.files.map(f => `<span class="file-chip">${f.split('/').pop()}</span>`).join('')}
+                               </div>`
+                            : '';
+
                         return `
                             <div class="release">
                                 <div class="release-date">${date}</div>
-                                <div class="commit-message">${commit.commit.message.split('\n')[0]}</div>
+                                <div class="commit-message">${commit.message}</div>
+                                ${bodyHtml}
+                                ${filesHtml}
                             </div>
                         `;
                     }).join('');
-                    
+
                     updatesDiv.innerHTML = html;
                 })
                 .catch(error => {
-                    document.getElementById('updates').innerHTML = 
+                    document.getElementById('updates').innerHTML =
                         '<p style="color: red;">Error loading updates. Please try again later.</p>';
                 });
         }
