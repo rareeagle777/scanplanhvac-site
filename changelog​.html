@@ -129,6 +129,21 @@
                 showCommits();
             });
         
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function cleanBody(raw) {
+            // Strip git trailers like "Co-Authored-By: ..." and trim
+            return raw
+                .replace(/^Co-Authored-By:.*$/gim, '')
+                .trim();
+        }
+
         function showCommits() {
             fetch('commits.json')
                 .then(response => response.json())
@@ -142,8 +157,9 @@
                             day: 'numeric'
                         });
 
-                        const bodyHtml = commit.body
-                            ? `<div class="commit-body">${commit.body.replace(/\n/g, '<br>')}</div>`
+                        const body = commit.body ? cleanBody(commit.body) : '';
+                        const bodyHtml = body
+                            ? `<div class="commit-body">${escapeHtml(body).replace(/\n/g, '<br>')}</div>`
                             : '';
 
                         const filesHtml = commit.files && commit.files.length
