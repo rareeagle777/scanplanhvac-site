@@ -23,41 +23,37 @@
             background: #f9f9f9;
             border-radius: 4px;
         }
-        .release-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .release-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #333;
-        }
-        .release-tag {
-            background: #007AFF;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.9em;
-        }
         .release-date {
             color: #666;
             font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-        .release-notes {
-            white-space: pre-wrap;
-            color: #444;
+            margin-bottom: 8px;
         }
         .commit-message {
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
-        .commit-hash {
-            font-family: monospace;
+        .commit-body {
+            color: #555;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        .commit-files {
+            margin-top: 8px;
             font-size: 0.85em;
+        }
+        .files-label {
             color: #888;
+            margin-right: 6px;
+        }
+        .file-chip {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #1a56db;
+            border-radius: 4px;
+            padding: 2px 7px;
+            margin: 2px 3px 2px 0;
+            font-family: monospace;
         }
         .loading {
             text-align: center;
@@ -71,7 +67,20 @@
     <div id="updates" class="loading">Loading updates...</div>
 
 <script>
-    // Fetches commits.json from your public repo (synced automatically via GitHub Action)
+    function escapeHtml(str) {
+        return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    function cleanBody(raw) {
+        return raw
+            .replace(/^Co-Authored-By:.*$/gim, '')
+            .trim();
+    }
+
     fetch('commits.json')
         .then(response => {
             if (!response.ok) throw new Error('Failed to load commits');
@@ -87,11 +96,24 @@
                     day: 'numeric'
                 });
 
+                const body = commit.body ? cleanBody(commit.body) : '';
+                const bodyHtml = body
+                    ? `<div class="commit-body">${escapeHtml(body).replace(/\n/g, '<br>')}</div>`
+                    : '';
+
+                const filesHtml = commit.files && commit.files.length
+                    ? `<div class="commit-files">
+                         <span class="files-label">Changed files:</span>
+                         ${commit.files.map(f => `<span class="file-chip">${escapeHtml(f.split('/').pop())}</span>`).join('')}
+                       </div>`
+                    : '';
+
                 return `
                     <div class="release">
                         <div class="release-date">${date}</div>
-                        <div class="commit-message">${commit.message}</div>
-                        <span class="commit-hash">${commit.hash}</span>
+                        <div class="commit-message">${escapeHtml(commit.message)}</div>
+                        ${bodyHtml}
+                        ${filesHtml}
                     </div>
                 `;
             }).join('');
