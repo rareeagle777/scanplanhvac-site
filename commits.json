@@ -1,6 +1,18 @@
 [
   {
+    "hash": "2fa8495",
+    "message": "Fix commits.json: restore message field for site backward compatibility",
+    "subject": "Fix commits.json: restore message field for site backward compatibility",
+    "body": "The website JS reads commit.message, but the refactor renamed it to\ncommit.subject. Both fields now present \u2014 message mirrors subject so\nexisting site code continues to work without changes.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+    "date": "2026-04-26T18:20:49+03:00",
+    "author": "Dave",
+    "files": [
+      ".github/workflows/sync-commits.yml"
+    ]
+  },
+  {
     "hash": "5369f62",
+    "message": "Add multi-unit heat pump support and backup heat cost modeling",
     "subject": "Add multi-unit heat pump support and backup heat cost modeling",
     "body": "EnergyAnalysisCalculator now accepts a unitCount parameter that scales\nheat pump capacity linearly, allowing contractors to model two or more\nidentical heads covering a larger load. A new backupCostForUnmet()\nhelper prices the unmet portion using the selected backup type (existing\nsystem, electric resistance, or none), applying the correct fuel rate and\nefficiency for each case.\n\nEnergyAnalysisModels gains BackupHeatType enum, unitCount on\nComparisonSystem, and backupCost/coverage fields on MonthlyEquipmentResult.\nAll new fields use decodeIfPresent so existing saved settings load without\nerror. EnergyAnalysisSettings in Models.swift adds systemUnitCountRawValues\nand backupHeatType with the same backward-compatible pattern.\n\nEnergyAnalysisView wires up the new unit-count stepper and backup heat\npicker, saves state on scene background transition, and cleans up duplicate\nonChange handlers.\n\nGitHub Actions workflow updated to emit richer commits.json using Python:\neach entry now includes subject, body, changed file list, and proper\nJSON escaping instead of the fragile shell sed approach.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
     "date": "2026-04-26T18:08:33+03:00",
@@ -17,6 +29,7 @@
   },
   {
     "hash": "bb2d573",
+    "message": "Update energy analysis and project dashboard",
     "subject": "Update energy analysis and project dashboard",
     "body": "",
     "date": "2026-04-23T22:07:22+03:00",
@@ -40,6 +53,7 @@
   },
   {
     "hash": "e933032",
+    "message": "Add Mitsubishi Hyper-Heat single-zone JSON performance curve",
     "subject": "Add Mitsubishi Hyper-Heat single-zone JSON performance curve",
     "body": "- Bundle MUZ-FX18NLHZ performance data (capacity + power at 11 outdoor temps)\n- Add MitsubishiPerformanceData.swift with Codable loader, sorted interpolation, and COP\n- Route .hyperHeatSingleZone to JSON-backed curve in baseHeatPumpCOP/baseHeatPumpCapacityBTU\n- Defrost derate and unmet-load logic unchanged, applied on top of base points\n- Debug-only logging for missing/malformed JSON\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
     "date": "2026-04-13T20:51:17-04:00",
@@ -53,6 +67,7 @@
   },
   {
     "hash": "2a9cd08",
+    "message": "Improve energy analysis accuracy, COP reporting, and UI validation",
     "subject": "Improve energy analysis accuracy, COP reporting, and UI validation",
     "body": "- Fix heat pump COP display: replace time-averaged interpolated COPs with\n  energy-weighted effective COP (deliveredBTU / kWh / 3412) for both monthly\n  and seasonal totals, giving a physically correct reported efficiency\n- Extend COP curve cold-end to -20\u00b0F (1.2) for smoother subzero interpolation;\n  add comment clarifying this is a generalized planning curve, not spec data\n- Add date range validation: disable analysis and show inline red message when\n  startDate > endDate\n- Replace hardcoded season footer text with dynamic formatting from\n  WeatherService.defaultHeatingSeasonRange()\n- Show propane price row only when propane is relevant (consistent with other fuels)\n- Monthly cost cells now show cents ($x.xx); season totals remain whole dollars\n- Cache DateFormatter and shortMonthSymbols as static lets to avoid per-render allocs\n- Add comment documenting Manual J indoor-setpoint vs energy-analysis consistency\n- Fix WeatherService date handling: use local calendar for API date strings and\n  clamp returned records to the exact selected range\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
     "date": "2026-04-11T11:28:35-04:00",
@@ -67,6 +82,7 @@
   },
   {
     "hash": "2bad4e2",
+    "message": "Change default heating season to Oct 1 2015 \u2013 Mar 31 2026",
     "subject": "Change default heating season to Oct 1 2015 \u2013 Mar 31 2026",
     "body": "Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
     "date": "2026-04-11T10:16:44-04:00",
@@ -79,6 +95,7 @@
   },
   {
     "hash": "0946561",
+    "message": "Persist energy analysis inputs per project",
     "subject": "Persist energy analysis inputs per project",
     "body": "Adds EnergyAnalysisSettings struct (Codable) to Project, storing all\nuser inputs: existing system type/efficiency, fuel prices, selected\ncomparison systems, per-system efficiencies, and date range. Settings\nare loaded on view appear and saved on disappear and when the user\nruns the analysis, so inputs are restored exactly when reopening the\nEnergy Analysis screen for any project.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
     "date": "2026-04-11T10:07:37-04:00",
@@ -90,6 +107,7 @@
   },
   {
     "hash": "a99894d",
+    "message": "Fix energy analysis export blank screen and add loading indicator",
     "subject": "Fix energy analysis export blank screen and add loading indicator",
     "body": "Replace ShareSheet with QuickLookView in a fullScreenCover, matching the\nfloor plan export pattern. The blank screen was caused by the sheet body\nrendering before the reportURL state update was applied. The export now\nruns inside a Task with Task.yield() so a ProgressView spinner appears\nin the toolbar while the PDF is being generated, before QuickLook opens\nwith a built-in share button.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
     "date": "2026-04-11T10:00:14-04:00",
@@ -100,6 +118,7 @@
   },
   {
     "hash": "d26bc25",
+    "message": "Make Gas Pipe Sizer chart-driven to prevent unsupported configurations",
     "subject": "Make Gas Pipe Sizer chart-driven to prevent unsupported configurations",
     "body": "availableFuelTypes and availableSystemTypes are now derived from loaded\nchart data rather than enum allCases, so the pickers only show options\nthat have a backing chart. selectFirstValidConfiguration() snaps all\nthree selections to a valid combination on load. A descriptive\nnoChartMessage explains what IS available when no chart matches, used\nin both the configuration section and the calculate footer.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
     "date": "2026-04-11T00:55:50-04:00",
@@ -111,6 +130,7 @@
   },
   {
     "hash": "c933ede",
+    "message": "Add energy analysis PDF report with bar charts and export",
     "subject": "Add energy analysis PDF report with bar charts and export",
     "body": "Generates a two-page PDF from the Energy Analysis view showing a season\ncost horizontal bar chart, grouped monthly cost bar chart, cost\ncomparison table, and per-system monthly detail tables. Export button\nappears in the toolbar after running an analysis and shares via the\nstandard iOS share sheet.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
     "date": "2026-04-11T00:53:48-04:00",
@@ -122,6 +142,7 @@
   },
   {
     "hash": "729b70f",
+    "message": "Add room rename, floor plan PDF export, and fix interior door sync",
     "subject": "Add room rename, floor plan PDF export, and fix interior door sync",
     "body": "- Fix FloorPlanView wall toggle to use updateWall() so doors/windows\n  inherit interior/exterior status correctly\n- Add room rename via swipe action in project dashboard and toolbar\n  button in room detail view\n- Add all-floor-plans PDF export with per-room heating/cooling loads,\n  loading indicator, and white background fix\n- Add gas piping sizer models, engine, views, and test scaffolding\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
     "date": "2026-04-10T20:22:01-04:00",
@@ -145,6 +166,7 @@
   },
   {
     "hash": "218f4f3",
+    "message": "Add weather backfill and energy analysis updates",
     "subject": "Add weather backfill and energy analysis updates",
     "body": "- Expand weather backfill models and calculator behavior\\n- Add energy analysis models, calculator, and view flow\\n- Update project/content/edit/new dashboard views for analysis navigation\\n- Adjust privacy documentation for weather data/API usage",
     "date": "2026-04-07T21:13:20-04:00",
@@ -167,6 +189,7 @@
   },
   {
     "hash": "6a24888",
+    "message": "Update website privacy and terms text for latest app features",
     "subject": "Update website privacy and terms text for latest app features",
     "body": "",
     "date": "2026-04-06T21:52:07-04:00",
@@ -178,6 +201,7 @@
   },
   {
     "hash": "c4270a2",
+    "message": "Refine boiler and DHW sizing flow and comparison integration",
     "subject": "Refine boiler and DHW sizing flow and comparison integration",
     "body": "",
     "date": "2026-04-06T21:34:55-04:00",
@@ -200,6 +224,7 @@
   },
   {
     "hash": "0f0664d",
+    "message": "Add DHW comparison info button and help sheet content",
     "subject": "Add DHW comparison info button and help sheet content",
     "body": "",
     "date": "2026-04-06T20:56:15-04:00",
@@ -218,6 +243,7 @@
   },
   {
     "hash": "bcdeb62",
+    "message": "Add psychrometric cooling loads, climate-aware infiltration, and DHW fixture-driven system sizing",
     "subject": "Add psychrometric cooling loads, climate-aware infiltration, and DHW fixture-driven system sizing",
     "body": "Manual J Calculator:\n- Add psychrometric data per climate zone (outdoor/indoor grains, enthalpy)\n- Infiltration latent load now uses Q = 0.68 \u00d7 CFM \u00d7 \u0394grains (climate-aware)\n- Basement rooms use 25% volume for infiltration (above-grade only)\n- Split internal gains into lighting, appliance sensible, and appliance latent\n- Add room-level SHR (sensible heat ratio) and cooling CFM\n- Add heating CFM for heat pump (35\u00b0F rise) and furnace (55\u00b0F rise)\n- Add system-level enthalpy-based CFM: Q_total / (4.5 \u00d7 \u0394h)\n- Slab floor loss uses perimeter-based formula with F=0.73\n- Add ventilation placeholders in structs for future ASHRAE 62.2\n\nDHW System:\n- DHW Fixture Sizer now persists data per project (DHWFixtureSizerData model)\n- DHW System Sizing pulls all inputs from Fixture Sizer (no manual entry)\n- Shows \"No Fixture Data\" prompt when fixtures not yet entered\n- Remove install cost references from all water heater options and reports\n- Add DHWSizingData and DHWFixtureSizerData Codable models with migration\n\nViews:\n- Project dashboard shows both DHW Fixture Sizer and DHW System Sizing links\n- Room detail shows heat pump/furnace CFM, SHR, and room cooling CFM\n- Project analysis shows enthalpy-based airflow alongside sensible airflow\n- Project analysis shows humidity grains data per climate zone\n- Settings version now reads from bundle instead of hardcoded string\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
     "date": "2026-04-04T20:03:09-04:00",
@@ -236,6 +262,7 @@
   },
   {
     "hash": "3f26033",
+    "message": "Merge branch 'main' of https://github.com/rareeagle777/Scan-Plan-HVAC",
     "subject": "Merge branch 'main' of https://github.com/rareeagle777/Scan-Plan-HVAC",
     "body": "",
     "date": "2026-04-01T18:20:39-04:00",
@@ -244,6 +271,7 @@
   },
   {
     "hash": "7edbd64",
+    "message": "Add DHW sizing system with indirect tank calculator and cooling CFM calculations",
     "subject": "Add DHW sizing system with indirect tank calculator and cooling CFM calculations",
     "body": "New Features:\n- DHWCalculatorView: Manufacturer/series/model tank selection\n- DHWSystemSizingView: Comprehensive DHW system comparison\n- DHWSizerView: Enhanced DHW sizing interface\n- DuctworkScanGuide: Lidar scanning best practices\n\nNew Models & Data:\n- DHWCalculator: BTU/FHR calculation engine\n- IndirectTankModel: Data structures for indirect water heaters\n- TankDatabase: Tank specifications database\n- WaterTemperatureDefaults: Regional groundwater temperature data\n\nUpdates:\n- ManualJCalculator: Enhanced heat loss calculations\n- Models: Extended data structures for DHW integration\n- ReportGenerator: Added DHW system reporting\n- ProjectDashboardView: Integrated DHW sizing access\n- RoomDetailView: Improved room-level calculations\n- RoomScanView: Enhanced scanning workflow",
     "date": "2026-04-01T18:18:50-04:00",
@@ -267,6 +295,7 @@
   },
   {
     "hash": "f2959fb",
+    "message": "Update sync-commits.yml",
     "subject": "Update sync-commits.yml",
     "body": "",
     "date": "2026-03-29T10:28:40-04:00",
@@ -277,22 +306,13 @@
   },
   {
     "hash": "b7897ac",
+    "message": "Update project file",
     "subject": "Update project file",
     "body": "",
     "date": "2026-03-29T10:09:30-04:00",
     "author": "Dave",
     "files": [
       "ScanPlanHVAC.xcodeproj/project.pbxproj"
-    ]
-  },
-  {
-    "hash": "9c68365",
-    "subject": "Update sync-commits.yml",
-    "body": "",
-    "date": "2026-03-29T09:52:00-04:00",
-    "author": "rareeagle777",
-    "files": [
-      ".github/workflows/sync-commits.yml"
     ]
   }
 ]
