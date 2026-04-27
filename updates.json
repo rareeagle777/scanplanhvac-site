@@ -8,5 +8,25 @@
       "Refined heat pump sizing display in energy cost comparison.",
       "General stability and workflow improvements."
     ]
+  },
+  {
+    "version": "1.2.8",
+    "date": "2026-04-26",
+    "title": "Public Updates Page Refresh",
+    "notes": [
+      "Improved how release updates are presented publicly.",
+      "Refined update content for a clearer customer-facing summary."
+    ]
+  },
+  {
+    "version": "1.2.7",
+    "date": "2026-04-26",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Enhanced energy analysis accuracy.",
+      "Updated equipment comparison coverage.",
+      "General interface and workflow refinements."
+    ]
   }
 ]
