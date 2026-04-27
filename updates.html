@@ -3,128 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScanPlan HVAC - Updates</title>
+    <title>Scan Plan HVAC Updates</title>
     <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f1ea;
+            --surface: rgba(255, 255, 255, 0.92);
+            --surface-border: rgba(33, 46, 58, 0.08);
+            --text: #1f2a33;
+            --muted: #5a6772;
+            --accent: #b24a2e;
+            --accent-soft: rgba(178, 74, 46, 0.12);
+            --shadow: 0 24px 60px rgba(31, 42, 51, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
+            margin: 0;
+            font-family: "Avenir Next", "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(178, 74, 46, 0.16), transparent 30%),
+                linear-gradient(180deg, #faf7f1 0%, var(--bg) 100%);
         }
+
+        main {
+            width: min(960px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 56px 0 72px;
+        }
+
+        .hero {
+            margin-bottom: 28px;
+            padding: 28px;
+            border: 1px solid var(--surface-border);
+            border-radius: 28px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
         h1 {
-            color: #007AFF;
-            margin-bottom: 40px;
+            margin: 16px 0 12px;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            line-height: 0.98;
         }
-        .release {
-            border-left: 4px solid #007AFF;
-            padding: 20px;
-            margin-bottom: 30px;
-            background: #f9f9f9;
-            border-radius: 4px;
-        }
-        .release-date {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-        }
-        .commit-message {
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .commit-body {
-            color: #555;
-            font-size: 0.95em;
-            margin-bottom: 10px;
+
+        .hero p {
+            max-width: 42rem;
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
             line-height: 1.6;
         }
-        .commit-files {
-            margin-top: 8px;
-            font-size: 0.85em;
+
+        #updates {
+            display: grid;
+            gap: 18px;
         }
-        .files-label {
-            color: #888;
-            margin-right: 6px;
+
+        .update-card {
+            padding: 24px;
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
         }
-        .file-chip {
-            display: inline-block;
-            background: #e8f0fe;
-            color: #1a56db;
-            border-radius: 4px;
-            padding: 2px 7px;
-            margin: 2px 3px 2px 0;
-            font-family: monospace;
+
+        .update-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            margin-bottom: 12px;
+            color: var(--muted);
+            font-size: 0.92rem;
         }
-        .loading {
+
+        .version-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.35rem;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .status {
+            padding: 24px;
+            border-radius: 24px;
+            background: var(--surface);
+            color: var(--muted);
             text-align: center;
-            padding: 40px;
-            color: #666;
+            border: 1px solid var(--surface-border);
+        }
+
+        @media (max-width: 640px) {
+            main {
+                width: min(100% - 20px, 960px);
+                padding-top: 24px;
+            }
+
+            .hero,
+            .update-card,
+            .status {
+                padding: 20px;
+                border-radius: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>📱 ScanPlan HVAC Updates</h1>
-    <div id="updates" class="loading">Loading updates...</div>
+    <main>
+        <section class="hero">
+            <div class="eyebrow">Product Updates</div>
+            <h1>What’s New in Scan Plan HVAC</h1>
+            <p>
+                A customer-facing summary of recent improvements. This page intentionally shows only
+                curated release information.
+            </p>
+        </section>
 
-<script>
-    function escapeHtml(str) {
-        return str
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;');
-    }
+        <section id="updates" aria-live="polite">
+            <div class="status">Loading updates…</div>
+        </section>
+    </main>
 
-    function cleanBody(raw) {
-        return raw
-            .replace(/^Co-Authored-By:.*$/gim, '')
-            .trim();
-    }
+    <script>
+        // Schema constraints — must match the limits enforced by the server-side generator.
+        const VERSION_MAX_LEN = 20;
+        const TITLE_MAX_LEN   = 80;
+        const NOTE_MAX_LEN    = 200;
+        const NOTES_MAX_COUNT = 5;
 
-    fetch('commits.json')
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to load commits');
-            return response.json();
-        })
-        .then(commits => {
-            const updatesDiv = document.getElementById('updates');
+        // ISO-8601 date and a safe version string (digits, dots, letters, spaces, hyphens).
+        const DATE_RE    = /^\d{4}-\d{2}-\d{2}$/;
+        const VERSION_RE = /^[\d.a-zA-Z\s\-]+$/;
 
-            const html = commits.map(commit => {
-                const date = new Date(commit.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
+        const updatesContainer = document.getElementById("updates");
 
-                const body = commit.body ? cleanBody(commit.body) : '';
-                const bodyHtml = body
-                    ? `<div class="commit-body">${escapeHtml(body).replace(/\n/g, '<br>')}</div>`
-                    : '';
+        function renderStatus(message) {
+            updatesContainer.innerHTML = `<div class="status">${message}</div>`;
+        }
 
-                const filesHtml = commit.files && commit.files.length
-                    ? `<div class="commit-files">
-                         <span class="files-label">Changed files:</span>
-                         ${commit.files.map(f => `<span class="file-chip">${escapeHtml(f.split('/').pop())}</span>`).join('')}
-                       </div>`
-                    : '';
+        // Guards that every entry must pass before being rendered.
+        // This is a second, independent gate — the primary sanitization happens server-side.
+        function isValidUpdate(entry) {
+            if (!entry || typeof entry !== "object") return false;
 
-                return `
-                    <div class="release">
-                        <div class="release-date">${date}</div>
-                        <div class="commit-message">${escapeHtml(commit.message)}</div>
-                        ${bodyHtml}
-                        ${filesHtml}
+            const { version, date, title, notes } = entry;
+
+            if (
+                typeof version !== "string" ||
+                typeof date    !== "string" ||
+                typeof title   !== "string" ||
+                !Array.isArray(notes)
+            ) return false;
+
+            // Format and length guards
+            if (!VERSION_RE.test(version) || version.length > VERSION_MAX_LEN) return false;
+            if (!DATE_RE.test(date))                                            return false;
+            if (!title || title.length > TITLE_MAX_LEN)                        return false;
+            if (notes.length === 0 || notes.length > NOTES_MAX_COUNT)          return false;
+
+            return notes.every(
+                (note) => typeof note === "string" && note.length > 0 && note.length <= NOTE_MAX_LEN
+            );
+        }
+
+        function renderUpdates(entries) {
+            const safeEntries = entries.filter(isValidUpdate);
+
+            if (safeEntries.length === 0) {
+                renderStatus("No updates are available right now.");
+                return;
+            }
+
+            updatesContainer.innerHTML = "";
+
+            safeEntries.forEach((entry) => {
+                const article = document.createElement("article");
+                article.className = "update-card";
+
+                const notes = entry.notes
+                    .map((note) => `<li>${escapeHTML(note)}</li>`)
+                    .join("");
+
+                article.innerHTML = `
+                    <div class="update-meta">
+                        <span class="version-chip">Version ${escapeHTML(entry.version)}</span>
+                        <span>${escapeHTML(entry.date)}</span>
                     </div>
+                    <h2>${escapeHTML(entry.title)}</h2>
+                    <ul>${notes}</ul>
                 `;
-            }).join('');
 
-            updatesDiv.innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error loading updates:', error);
-            document.getElementById('updates').innerHTML =
-                '<p style="color: red;">Error loading updates. Please try again later.</p>';
-        });
-</script>
+                updatesContainer.appendChild(article);
+            });
+        }
+
+        function escapeHTML(value) {
+            return value
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll("\"", "&quot;")
+                .replaceAll("'", "&#39;");
+        }
+
+        async function loadUpdates() {
+            try {
+                const response = await fetch("./updates.json", { cache: "no-store" });
+                if (!response.ok) {
+                    throw new Error("Unable to load updates.");
+                }
+
+                const data = await response.json();
+                if (!Array.isArray(data)) {
+                    throw new Error("Invalid updates payload.");
+                }
+
+                renderUpdates(data);
+            } catch (error) {
+                renderStatus("Updates are temporarily unavailable.");
+            }
+        }
+
+        loadUpdates();
+    </script>
 </body>
 </html>

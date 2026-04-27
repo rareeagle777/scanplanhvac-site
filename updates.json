@@ -1,0 +1,195 @@
+[
+  {
+    "version": "Unreleased",
+    "date": "2026-04-27",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Improved gas piping sizing guidance.",
+      "Expanded supported equipment data and comparisons.",
+      "Refined parts of the app interface and workflow."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-26",
+    "title": "Stability & Quality Improvements",
+    "notes": [
+      "Improved stability and overall app reliability."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-26",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Expanded supported equipment data and comparisons.",
+      "Refined parts of the app interface and workflow."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-23",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Refined parts of the app interface and workflow."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-13",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Expanded supported equipment data and comparisons."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-11",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Expanded supported equipment data and comparisons.",
+      "Refined reports and export output.",
+      "Refined parts of the app interface and workflow.",
+      "Improved stability and overall app reliability."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-11",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-11",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Refined parts of the app interface and workflow."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-11",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Refined reports and export output.",
+      "Refined parts of the app interface and workflow.",
+      "Improved room scanning and floor plan workflows.",
+      "Improved stability and overall app reliability."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-11",
+    "title": "Gas Piping Improvements",
+    "notes": [
+      "Improved gas piping sizing guidance."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-11",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Refined reports and export output.",
+      "Refined parts of the app interface and workflow."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-10",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Improved gas piping sizing guidance.",
+      "Refined reports and export output.",
+      "Refined parts of the app interface and workflow.",
+      "Improved room scanning and floor plan workflows."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-07",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Refined parts of the app interface and workflow.",
+      "Updated app information and subscription experience."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-06",
+    "title": "Subscription & App Info Updates",
+    "notes": [
+      "Updated app information and subscription experience."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-06",
+    "title": "Domestic Hot Water Updates",
+    "notes": [
+      "Updated domestic hot water sizing and planning tools."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-06",
+    "title": "Domestic Hot Water Updates",
+    "notes": [
+      "Updated domestic hot water sizing and planning tools.",
+      "Refined parts of the app interface and workflow."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-04",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Updated domestic hot water sizing and planning tools.",
+      "Expanded supported equipment data and comparisons.",
+      "Refined reports and export output.",
+      "Refined parts of the app interface and workflow."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-01",
+    "title": "Scanning & Floor Plan Improvements",
+    "notes": [
+      "Improved room scanning and floor plan workflows."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-04-01",
+    "title": "Performance & Analysis Improvements",
+    "notes": [
+      "Improved heating and cooling calculations.",
+      "Updated domestic hot water sizing and planning tools.",
+      "Refined reports and export output.",
+      "Refined parts of the app interface and workflow.",
+      "Improved room scanning and floor plan workflows."
+    ]
+  },
+  {
+    "version": "Unreleased",
+    "date": "2026-03-29",
+    "title": "App Improvements",
+    "notes": [
+      "General improvements and fixes."
+    ]
+  }
+]
