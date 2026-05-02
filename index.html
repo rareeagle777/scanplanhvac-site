@@ -3,390 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ScanPlanHVAC — LiDAR Floor Plans & HVAC Load Calculations for iPhone</title>
 
-<meta name="description" content="Scan rooms with LiDAR, create 2D floor plans, measure walls, doors, and windows, and generate HVAC load reports from your iPhone. Built for HVAC contractors and energy auditors.">
-<meta name="keywords" content="HVAC app, Manual J app, HVAC load calculation, LiDAR floor plan, room scanning app, HVAC contractor tool, energy audit app, iPhone LiDAR, building measurement">
+<title>ScanPlanHVAC — LiDAR Floor Plans & HVAC Load Calculations</title>
+
+<meta name="description" content="LiDAR room scanning, 2D floor plans, and HVAC load calculations from your iPhone. Built for contractors and energy auditors.">
 <link rel="canonical" href="https://scanplanhvac.com/">
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://scanplanhvac.com/">
-<meta property="og:title" content="ScanPlanHVAC — LiDAR Floor Plans for HVAC Pros">
-<meta property="og:description" content="Scan rooms with LiDAR, generate floor plans, and calculate HVAC loads — all from your iPhone.">
-<meta property="og:image" content="https://scanplanhvac.com/images/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ScanPlanHVAC — LiDAR Floor Plans for HVAC Pros">
-<meta name="twitter:description" content="Scan rooms with LiDAR, generate floor plans, and calculate HVAC loads — all from your iPhone.">
-<meta name="twitter:image" content="https://scanplanhvac.com/images/og-image.png">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "ScanPlanHVAC",
-  "operatingSystem": "iOS",
-  "applicationCategory": "BusinessApplication",
-  "description": "LiDAR-powered room scanning, floor plans, and HVAC load calculations for iPhone. Built for HVAC contractors and energy auditors.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "installUrl": "https://apps.apple.com/app/scanplanhvac/id6760936635"
-}
-</script>
+<!-- Favicon -->
+<link rel="icon" href="images/app-icon.png">
+<link rel="apple-touch-icon" href="images/app-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --blue: #0A84FF;
-  --blue-dim: #0A84FF22;
-  --dark: #0C0C0E;
-  --card: #18181B;
-  --card-border: #27272A;
-  --text: #FAFAFA;
-  --text-mid: #A1A1AA;
-  --text-dim: #71717A;
-  --accent: #22D3EE;
-  --accent-dim: #22D3EE18;
-  --green: #34D399;
-  --radius: 12px;
+  --blue:#0A84FF;
+  --dark:#0C0C0E;
+  --card:#18181B;
+  --border:#27272A;
+  --text:#FAFAFA;
+  --mid:#A1A1AA;
+  --accent:#22D3EE;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* {margin:0;padding:0;box-sizing:border-box;}
 
 body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--dark);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--card-border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--card-border) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 0;
+  font-family:'DM Sans',sans-serif;
+  background:var(--dark);
+  color:var(--text);
 }
 
 .container {
-  position: relative;
-  z-index: 1;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 24px;
+  max-width:720px;
+  margin:auto;
+  padding:24px;
 }
 
 header {
-  padding: 80px 0 44px;
-  text-align: center;
+  text-align:center;
+  padding:60px 0;
 }
 
+/* 🔥 ICON (UPGRADED) */
 .app-icon {
-  width: 88px;
-  height: 88px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--blue), var(--accent));
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 28px;
-  box-shadow: 0 0 60px var(--blue-dim);
+  width:100px;
+  height:100px;
+  border-radius:24px;
+  overflow:hidden;
+  margin:0 auto 28px;
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.6),
+    0 0 60px rgba(34,211,238,0.35),
+    inset 0 0 10px rgba(255,255,255,0.05);
 }
 
-.app-icon svg {
-  width: 44px;
-  height: 44px;
-  fill: white;
+.app-icon img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: 12px;
+  font-size:2.3rem;
+  margin-bottom:10px;
 }
 
-h1 span {
-  color: var(--accent);
-}
+h1 span {color:var(--accent);}
 
 .tagline {
-  font-size: 1.15rem;
-  color: var(--text-mid);
-  max-width: 500px;
-  margin: 0 auto;
+  color:var(--mid);
+  max-width:500px;
+  margin:auto;
 }
 
-.app-store-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 28px;
-  padding: 14px 28px;
-  border-radius: 100px;
-  background: var(--text);
-  color: var(--dark);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+.app-store {
+  display:inline-block;
+  margin-top:24px;
+  padding:14px 28px;
+  background:white;
+  color:black;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
 }
 
-.app-store-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 24px rgba(255,255,255,0.15);
-}
-
-.app-store-badge svg {
-  width: 20px;
-  height: 24px;
-}
-
+/* 🔥 NOTICE BANNER */
 .notice {
-  margin: 30px auto 0;
-  max-width: 560px;
-  padding: 18px 20px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(34, 211, 238, 0.28);
-  background:
-    radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 45%),
-    rgba(24, 24, 27, 0.92);
-  box-shadow: 0 0 32px rgba(34, 211, 238, 0.08);
-  text-align: left;
+  margin-top:28px;
+  padding:16px;
+  border-radius:12px;
+  background:rgba(34,211,238,0.08);
+  border:1px solid rgba(34,211,238,0.3);
+  text-align:left;
 }
 
-.notice strong {
-  color: var(--text);
-  display: block;
-  margin-bottom: 6px;
-}
-
-.notice p {
-  color: var(--text-mid);
-  font-size: 0.93rem;
-}
+.notice strong {display:block;margin-bottom:6px;}
+.notice p {color:var(--mid);font-size:0.9rem;}
 
 .features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin: 28px 0 56px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin:30px 0;
 }
 
 .pill {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 6px 14px;
-  border-radius: 100px;
-  border: 1px solid var(--card-border);
-  background: var(--card);
-  color: var(--text-mid);
-  white-space: nowrap;
-}
-
-.pill::before {
-  content: '▸ ';
-  color: var(--accent);
+  border:1px solid var(--border);
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:0.8rem;
+  color:var(--mid);
 }
 
 section {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  padding: 32px;
-  margin-bottom: 20px;
-}
-
-section h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-section h2 .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot-blue { background: var(--blue); }
-.dot-green { background: var(--green); }
-.dot-cyan { background: var(--accent); }
-
-section p,
-section li {
-  color: var(--text-mid);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.step {
-  text-align: center;
-}
-
-.step-number {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 8px;
-}
-
-.step-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-
-.step-desc {
-  font-size: 0.78rem;
-  color: var(--text-dim);
-  line-height: 1.4;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:24px;
+  border-radius:10px;
+  margin-bottom:20px;
 }
 
 .screenshots {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.screenshot-frame {
-  aspect-ratio: 9 / 19.5;
-  border-radius: 10px;
-  border: 1px solid var(--card-border);
-  background: var(--dark);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
 }
 
 .screenshot-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width:100%;
+  border-radius:8px;
 }
 
-.screenshot-label {
-  text-align: center;
-  margin-top: 8px;
-  font-size: 0.75rem;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--text-dim);
-}
-
-.link-row,
-.legal-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-a.email-link,
-a.footer-link,
-a.legal-link {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent-dim);
-  transition: border-color 0.2s;
-}
-
-a.email-link:hover,
-a.footer-link:hover,
-a.legal-link:hover {
-  border-color: var(--accent);
+a {
+  color:var(--accent);
+  text-decoration:none;
 }
 
 footer {
-  text-align: center;
-  padding: 48px 0 64px;
-  color: var(--text-dim);
-  font-size: 0.82rem;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 14px;
-}
-
-footer span {
-  color: var(--text-mid);
-}
-
-@media (max-width: 520px) {
-  header {
-    padding: 56px 0 36px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .tagline {
-    font-size: 1rem;
-  }
-
-  section {
-    padding: 24px;
-  }
-
-  .screenshots {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .steps {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .link-row,
-  .legal-links,
-  .footer-links {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-  }
-
-  footer .footer-links {
-    align-items: center;
-  }
+  text-align:center;
+  margin-top:40px;
+  color:var(--mid);
 }
 </style>
 </head>
@@ -395,142 +154,84 @@ footer span {
 <div class="container">
 
 <header>
+
+  <!-- ✅ YOUR ICON -->
   <div class="app-icon">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v2h-4V7zm0 4h4v2h-4v-2zm-6 4h10v2H7v-2z"/>
-    </svg>
+    <img src="images/app-icon.png" alt="ScanPlanHVAC App Icon">
   </div>
 
   <h1>Scan<span>Plan</span>HVAC</h1>
 
   <p class="tagline">
-    LiDAR-powered room scanning, floor plans, and HVAC load calculations — built for contractors and energy auditors.
+    LiDAR-powered room scanning, floor plans, and HVAC load calculations — built for contractors.
   </p>
 
-  <a href="https://apps.apple.com/app/scanplanhvac/id6760936635" class="app-store-badge" target="_blank" rel="noopener">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-      <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-27.1-46.9-42.2-83.7-45.5-35.4-3.3-74.2 20.8-88.4 20.8-15 0-49.5-19.7-75.6-19.7C63.6 140.3 0 184.9 0 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 37 59.2 127.3 107.4 125.7 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 75.6 17.9 48.7-.7 90.4-82.5 102.6-119.4-65.2-30.7-61.7-90-61.1-92.3zm-56.3-152.5c27.4-32.4 24.8-62.1 24-72.5-24 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 53-13.6 69.5-34.3z"/>
-    </svg>
-    Download on the App Store
+  <a href="https://apps.apple.com/app/scanplanhvac/id6760936635" class="app-store">
+    Download on App Store
   </a>
 
+  <!-- 🔥 PRICING / EARLY ACCESS -->
   <div class="notice">
-    <strong>Early access pricing is available for a limited time.</strong>
+    <strong>Early access pricing is available.</strong>
     <p>
-      ScanPlanHVAC is still in its early stages and is being updated, improved, and fixed often. As new features are added and the app continues to mature, pricing will increase.
+      The app is in active development and updated frequently. As features are added and the platform matures, pricing will increase.
     </p>
   </div>
+
 </header>
 
 <div class="features">
   <span class="pill">LiDAR Scanning</span>
-  <span class="pill">2D Floor Plans</span>
-  <span class="pill">Wall Measurements</span>
-  <span class="pill">USDZ Export</span>
+  <span class="pill">Floor Plans</span>
+  <span class="pill">Manual J</span>
   <span class="pill">PDF Reports</span>
-  <span class="pill">Manual J Calcs</span>
 </div>
 
 <section>
-  <h2><span class="dot dot-blue"></span>About the App</h2>
+  <h2>About</h2>
   <p>
-    ScanPlanHVAC turns your iPhone's LiDAR sensor into a professional measurement tool. Scan rooms to capture 3D models, automatically generate 2D floor plans with compass-corrected wall orientations, and export detailed PDF reports — all from the job site.
-  </p>
-  <p style="margin-top:12px;">
-    Designed for HVAC contractors who need fast, accurate building data for load calculations and system sizing.
+    ScanPlanHVAC turns your iPhone into a fast, accurate HVAC measurement tool. Capture rooms, generate plans, and build load calculations directly from the job site.
   </p>
 </section>
 
 <section>
-  <h2><span class="dot dot-cyan"></span>How It Works</h2>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-number">01</div>
-      <div class="step-label">Scan</div>
-      <div class="step-desc">Walk the room with your iPhone's LiDAR sensor</div>
-    </div>
-
-    <div class="step">
-      <div class="step-number">02</div>
-      <div class="step-label">Measure</div>
-      <div class="step-desc">Walls, doors, and windows detected automatically</div>
-    </div>
-
-    <div class="step">
-      <div class="step-number">03</div>
-      <div class="step-label">Plan</div>
-      <div class="step-desc">2D floor plan with compass-corrected orientations</div>
-    </div>
-
-    <div class="step">
-      <div class="step-number">04</div>
-      <div class="step-label">Report</div>
-      <div class="step-desc">Export PDF reports with all building data</div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2><span class="dot dot-cyan"></span>Screenshots</h2>
-
+  <h2>Screenshots</h2>
   <div class="screenshots">
-    <div>
-      <div class="screenshot-frame">
-        <img src="images/scan.png" alt="LiDAR room scanning in ScanPlanHVAC" loading="lazy">
-      </div>
-      <div class="screenshot-label">Room Scan</div>
+    <div class="screenshot-frame">
+      <img src="images/scan.png">
     </div>
-
-    <div>
-      <div class="screenshot-frame">
-        <img src="images/floorplan.png" alt="2D floor plan with wall measurements and orientations" loading="lazy">
-      </div>
-      <div class="screenshot-label">Floor Plan</div>
+    <div class="screenshot-frame">
+      <img src="images/floorplan.png">
     </div>
-
-    <div>
-      <div class="screenshot-frame">
-        <img src="images/report.png" alt="PDF report with HVAC building envelope data" loading="lazy">
-      </div>
-      <div class="screenshot-label">PDF Report</div>
+    <div class="screenshot-frame">
+      <img src="images/report.png">
     </div>
   </div>
 </section>
 
 <section>
-  <h2><span class="dot dot-green"></span>Updates & Support</h2>
+  <h2>Updates & Support</h2>
 
   <p>
-    Have questions, need help, or want to suggest a feature? Reach out anytime. Feedback from contractors and energy auditors helps prioritize what gets built next.
+    Have questions, need help, or want to suggest a feature? Reach out anytime — your feedback helps prioritize what gets built next.
   </p>
 
-  <div class="link-row">
-    <a class="email-link" href="mailto:support@scanplanhvac.com">Contact Support</a>
-    <a class="email-link" href="changelog.html">View Changelog</a>
-  </div>
+  <p style="margin-top:12px;">
+    <a href="mailto:support@scanplanhvac.com">Contact Support</a> |
+    <a href="changelog.html">View Changelog</a>
+  </p>
 </section>
 
 <section>
-  <h2><span class="dot dot-cyan"></span>Legal</h2>
-
+  <h2>Legal</h2>
   <p>
-    By using ScanPlanHVAC, you agree to our Terms of Service and Privacy Policy.
+    <a href="https://rareeagle777.github.io/scanplanhvac-terms/">Terms</a> |
+    <a href="https://rareeagle777.github.io/scanplanhvac-privacy/">Privacy</a>
   </p>
-
-  <div class="legal-links">
-    <a class="legal-link" href="https://rareeagle777.github.io/scanplanhvac-terms/" target="_blank" rel="noopener">
-      View Terms of Service
-    </a>
-
-    <a class="legal-link" href="https://rareeagle777.github.io/scanplanhvac-privacy/" target="_blank" rel="noopener">
-      View Privacy Policy
-    </a>
-  </div>
 </section>
 
 <footer>
-  <div>© 2026 <span>ScanPlanHVAC</span>. All rights reserved.</div>
+  <div>© 2026 ScanPlanHVAC</div>
 </footer>
 
 </div>
