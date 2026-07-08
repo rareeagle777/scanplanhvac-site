@@ -1,7 +1,7 @@
 [
   {
-    "version": "1.4.7",
-    "date": "2026-07-05",
+    "version": "1.4.8",
+    "date": "2026-07-07",
     "title": "Performance & Analysis Improvements",
     "notes": [
       "Improved heating and cooling calculations.",
@@ -55,15 +55,6 @@
       "Improved public-facing release notes presentation.",
       "Refined heat pump sizing display in energy cost comparison.",
       "General stability and workflow improvements."
-    ]
-  },
-  {
-    "version": "1.2.8",
-    "date": "2026-04-26",
-    "title": "Public Updates Page Refresh",
-    "notes": [
-      "Improved how release updates are presented publicly.",
-      "Refined update content for a clearer customer-facing summary."
     ]
   }
 ]
