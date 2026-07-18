@@ -1,7 +1,7 @@
 [
   {
-    "version": "1.4.8",
-    "date": "2026-07-07",
+    "version": "1.5",
+    "date": "2026-07-17",
     "title": "Performance & Analysis Improvements",
     "notes": [
       "Improved heating and cooling calculations.",
@@ -45,16 +45,6 @@
     "notes": [
       "Resolved an issue where restoring a previous purchase did not unlock the app.",
       "General reliability improvements."
-    ]
-  },
-  {
-    "version": "1.2.9",
-    "date": "2026-04-27",
-    "title": "Interface & Analysis Refinements",
-    "notes": [
-      "Improved public-facing release notes presentation.",
-      "Refined heat pump sizing display in energy cost comparison.",
-      "General stability and workflow improvements."
     ]
   }
 ]
