@@ -28,14 +28,5 @@
       "Add rooms manually without scanning for quick project setup.",
       "Improved layout and navigation on larger screens."
     ]
-  },
-  {
-    "version": "1.3",
-    "date": "2026-05-06",
-    "title": "Fuel Prices & Utility Costs",
-    "notes": [
-      "View current fuel price data to inform energy cost comparisons.",
-      "Add utility bill details to a project to improve cost estimates."
-    ]
   }
 ]
