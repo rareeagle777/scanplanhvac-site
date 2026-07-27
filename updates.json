@@ -19,14 +19,5 @@
       "Export and import projects using a dedicated backup file.",
       "Transfer projects between devices or keep local backups."
     ]
-  },
-  {
-    "version": "1.3",
-    "date": "2026-05-09",
-    "title": "Manual Room Creation",
-    "notes": [
-      "Add rooms manually without scanning for quick project setup.",
-      "Improved layout and navigation on larger screens."
-    ]
   }
 ]
