@@ -1,7 +1,7 @@
 [
   {
     "version": "1.5.1",
-    "date": "2026-07-26",
+    "date": "2026-07-27",
     "title": "Performance & Analysis Improvements",
     "notes": [
       "Improved heating and cooling calculations.",
@@ -36,15 +36,6 @@
     "notes": [
       "View current fuel price data to inform energy cost comparisons.",
       "Add utility bill details to a project to improve cost estimates."
-    ]
-  },
-  {
-    "version": "1.3",
-    "date": "2026-05-05",
-    "title": "Subscription & Stability Improvements",
-    "notes": [
-      "Resolved an issue where restoring a previous purchase did not unlock the app.",
-      "General reliability improvements."
     ]
   }
 ]
