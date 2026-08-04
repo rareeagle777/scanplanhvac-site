@@ -1,7 +1,7 @@
 [
   {
-    "version": "1.5.1",
-    "date": "2026-07-27",
+    "version": "1.5.3",
+    "date": "2026-08-03",
     "title": "Performance & Analysis Improvements",
     "notes": [
       "Improved heating and cooling calculations.",
@@ -9,15 +9,6 @@
       "Improved gas piping sizing guidance.",
       "Expanded supported equipment data and comparisons.",
       "Refined reports and export output."
-    ]
-  },
-  {
-    "version": "1.3",
-    "date": "2026-05-15",
-    "title": "Project Backup & Export",
-    "notes": [
-      "Export and import projects using a dedicated backup file.",
-      "Transfer projects between devices or keep local backups."
     ]
   }
 ]
