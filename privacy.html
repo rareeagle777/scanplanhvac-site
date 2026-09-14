@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScanPlanHVAC — Privacy Policy</title>
+    <link rel="canonical" href="https://scanplanhvac.com/privacy.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f7fb;
+            --surface: rgba(255, 255, 255, 0.92);
+            --surface-border: rgba(15, 23, 42, 0.09);
+            --text: #0f172a;
+            --muted: #475569;
+            --accent: #2563eb;
+            --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 28%),
+                linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
+            line-height: 1.7;
+        }
+
+        main {
+            width: min(880px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 32px 0 72px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .brand,
+        .back-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0 16px;
+            border-radius: 999px;
+            border: 1px solid var(--surface-border);
+            background: rgba(255, 255, 255, 0.82);
+        }
+
+        .hero,
+        .section,
+        .footer-card {
+            border: 1px solid var(--surface-border);
+            border-radius: 28px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .hero {
+            padding: 32px;
+            margin-bottom: 20px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 18px 0 10px;
+            font-size: clamp(2.3rem, 5vw, 3.6rem);
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .lead {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .policy-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .section {
+            padding: 24px;
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 1.3rem;
+            letter-spacing: -0.03em;
+        }
+
+        p,
+        li {
+            color: var(--muted);
+            margin: 0;
+            font-size: 0.98rem;
+        }
+
+        p + p,
+        p + ul,
+        ul + p,
+        ul + ul {
+            margin-top: 12px;
+        }
+
+        ul {
+            margin: 12px 0 0;
+            padding-left: 20px;
+        }
+
+        li + li {
+            margin-top: 8px;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .footer-card {
+            margin-top: 20px;
+            padding: 20px 24px;
+            color: var(--muted);
+            font-size: 0.92rem;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            main {
+                width: min(100% - 20px, 880px);
+                padding-top: 18px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero,
+            .section,
+            .footer-card {
+                padding: 22px;
+                border-radius: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="topbar">
+            <a class="brand" href="index.html">ScanPlanHVAC</a>
+            <a class="back-link" href="index.html">Back to Homepage</a>
+        </div>
+
+        <section class="hero">
+            <div class="eyebrow">Privacy Policy</div>
+            <h1>Privacy Policy</h1>
+            <p class="meta">ScanPlanHVAC for iOS · Effective date: April 7, 2026</p>
+            <p class="lead">
+                ScanPlanHVAC is an HVAC load calculation, floor plan, and building analysis tool that uses your device's LiDAR sensor to scan rooms, generate measurements, produce reports, and support energy modeling features. This policy explains what data the app processes, how it is used, and how it is handled.
+            </p>
+        </section>
+
+        <div class="policy-grid">
+            <section class="section">
+                <h2>1. Data We Collect</h2>
+                <p>The App processes the following categories of data during normal use:</p>
+                <ul>
+                    <li><strong>Room scan data</strong> — 3D point clouds, meshes, room geometry, and measurements captured by your device's LiDAR sensor and Apple ARKit framework.</li>
+                    <li><strong>Project information</strong> — Project names, addresses, map-selected locations, latitude/longitude coordinates, room names, building envelope details, equipment inputs, energy-modeling inputs, and other values you enter or confirm manually.</li>
+                    <li><strong>Device orientation</strong> — Compass heading data used solely to determine wall orientation and related directional references.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>2. How Data Is Stored</h2>
+                <p>Scan data, project data, and reports are stored locally on your device. The App does not transmit or store your scan data, project files, or reports on the developer's servers.</p>
+                <p>The App may use addresses, map-selected locations, coordinates, and environmental inputs to request related data such as weather information needed for modeling and projection features. This does not change where your project data is stored.</p>
+            </section>
+
+            <section class="section">
+                <h2>3. Third-Party Services</h2>
+                <p>The App may use third-party services such as Apple Maps and weather data providers to support address search, map display, location selection, energy modeling, system projections, and performance estimates.</p>
+                <p>These services may receive limited technical information necessary to process requests, such as search terms, selected addresses, selected coordinates, IP address, or basic device and network information. The App does not send user-generated room scans, project reports, or LiDAR models to these services.</p>
+                <p>The App does not use third-party analytics, advertising, or tracking services.</p>
+                <p>In a future version, the App may offer optional cloud storage or syncing features. If those features are introduced, this Privacy Policy will be updated to describe what data is transmitted, how it is stored, and what controls are available to you. Any cloud features will be optional.</p>
+            </section>
+
+            <section class="section">
+                <h2>4. Permissions</h2>
+                <p>The App may request the following device permissions:</p>
+                <ul>
+                    <li><strong>Camera &amp; LiDAR</strong> — Required to scan rooms and capture 3D measurements.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>5. Data Retention &amp; Deletion</h2>
+                <p>Because project data is stored locally on your device, you control its retention. You can delete projects, rooms, and related data within the App. Uninstalling the App will remove locally stored App data from your device, subject to your device and backup settings.</p>
+            </section>
+
+            <section class="section">
+                <h2>6. Children's Privacy</h2>
+                <p>The App is not directed to children under the age of 13 and does not knowingly collect personal information from children.</p>
+            </section>
+
+            <section class="section">
+                <h2>7. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised effective date. Continued use of the App after an updated policy becomes effective constitutes acceptance of the revised policy.</p>
+            </section>
+
+            <section class="section">
+                <h2>8. Contact</h2>
+                <p>If you have questions about this Privacy Policy, please contact:</p>
+                <p><a href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a></p>
+            </section>
+        </div>
+
+        <div class="footer-card">© 2026 ScanPlanHVAC. All rights reserved.</div>
+    </main>
+</body>
+</html>
