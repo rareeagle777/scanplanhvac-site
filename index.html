@@ -347,6 +347,18 @@ section p {
   color:#fff;
 }
 
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0, 0, 0, 0);
+  white-space:nowrap;
+  border:0;
+}
+
 a {
   color:var(--accent);
 }
@@ -509,7 +521,8 @@ footer {
       </iframe>
     </div>
     <p class="youtube-actions">
-      <a class="youtube-button" href="https://www.youtube.com/@scanplanhvac" target="_blank" rel="noopener noreferrer">Visit Channel (opens in new tab)</a>
+      <a class="youtube-button" href="https://www.youtube.com/@scanplanhvac" target="_blank" rel="noopener noreferrer" aria-describedby="youtube-new-tab-note">Visit Channel (opens in new tab)</a>
+      <span id="youtube-new-tab-note" class="sr-only">Opens in a new tab.</span>
     </p>
   </section>
 
@@ -521,7 +534,8 @@ footer {
     </p>
     <div class="link-row">
       <a class="link-pill" href="terms.html">Terms</a>
-      <a class="link-pill" href="https://rareeagle777.github.io/scanplanhvac-privacy/" target="_blank" rel="noopener noreferrer">Privacy (opens in new tab)</a>
+      <a class="link-pill" href="https://rareeagle777.github.io/scanplanhvac-privacy/" target="_blank" rel="noopener noreferrer" aria-describedby="privacy-new-tab-note">Privacy (opens in new tab)</a>
+      <span id="privacy-new-tab-note" class="sr-only">Opens in a new tab.</span>
     </div>
   </section>
 </div>
