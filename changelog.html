@@ -223,7 +223,7 @@
             letter-spacing: -0.03em;
         }
 
-        ul {
+        .update-notes {
             display: grid;
             gap: 10px;
             margin: 0;
@@ -232,13 +232,13 @@
             color: var(--muted);
         }
 
-        li {
+        .update-notes li {
             position: relative;
             padding-left: 18px;
             line-height: 1.65;
         }
 
-        li::before {
+        .update-notes li::before {
             content: '';
             position: absolute;
             left: 0;
@@ -403,7 +403,7 @@
                         <span class="date-chip">${escapeHTML(entry.date)}</span>
                     </div>
                     <h2>${escapeHTML(entry.title)}</h2>
-                    <ul>${notes}</ul>
+                    <ul class="update-notes">${notes}</ul>
                 `;
 
                 updatesContainer.appendChild(article);
