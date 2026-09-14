@@ -137,9 +137,12 @@
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 14px;
             margin-top: 24px;
+            padding: 0;
+            list-style: none;
         }
 
         .hero-summary-card {
+            list-style: none;
             padding: 18px;
             border-radius: 20px;
             border: 1px solid var(--surface-border);
@@ -313,20 +316,20 @@
                 A streamlined changelog for teams who want to review versioned improvements, release timing,
                 and shipped workflow changes in a more structured format.
             </p>
-            <div class="hero-summary" aria-label="Update page highlights">
-                <div class="hero-summary-card">
+            <ul class="hero-summary" aria-label="Changelog highlights">
+                <li class="hero-summary-card">
                     <strong>Version-first view</strong>
                     <span>Each entry highlights the shipped version alongside the release date.</span>
-                </div>
-                <div class="hero-summary-card">
+                </li>
+                <li class="hero-summary-card">
                     <strong>Technical clarity</strong>
                     <span>Release notes are grouped into a structured changelog that is easier to review over time.</span>
-                </div>
-                <div class="hero-summary-card">
+                </li>
+                <li class="hero-summary-card">
                     <strong>Published from source</strong>
                     <span>The changelog renders from the same current update feed used on the public updates page.</span>
-                </div>
-            </div>
+                </li>
+            </ul>
         </section>
 
         <section id="updates" aria-live="polite">
