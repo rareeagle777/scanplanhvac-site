@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.5.8",
+    "date": "2026-09-13",
+    "title": "Floor Plan Windows & Doors",
+    "notes": [
+      "Place windows and doors directly on the 2D floor plan by dragging them onto the right wall.",
+      "Slide openings to the exact spot, and move or delete them anytime.",
+      "Each opening stays tied to its wall so heating and cooling loads stay accurate.",
+      "Combine two projects that share a heating system into one building.",
+      "Simplified the Edit Floor Envelope screen to the floor you're working on."
+    ]
+  },
+  {
     "version": "1.5.7",
     "date": "2026-09-10",
     "title": "Performance & Analysis Improvements",
