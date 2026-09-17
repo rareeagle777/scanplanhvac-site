@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScanPlanHVAC Changelog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Scan Plan HVAC Updates</title>
     <style>
         :root {
             color-scheme: light;
-            --bg: #f4f7fb;
-            --surface: rgba(255, 255, 255, 0.9);
-            --surface-strong: #ffffff;
-            --surface-border: rgba(15, 23, 42, 0.09);
-            --text: #0f172a;
-            --muted: #475569;
-            --accent: #2563eb;
-            --accent-strong: #0f766e;
-            --accent-soft: rgba(37, 99, 235, 0.1);
-            --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-            --shadow-soft: 0 14px 32px rgba(15, 23, 42, 0.06);
+            --bg: #f4f1ea;
+            --surface: rgba(255, 255, 255, 0.92);
+            --surface-border: rgba(33, 46, 58, 0.08);
+            --text: #1f2a33;
+            --muted: #5a6772;
+            --accent: #b24a2e;
+            --accent-soft: rgba(178, 74, 46, 0.12);
+            --shadow: 0 24px 60px rgba(31, 42, 51, 0.08);
         }
 
         * {
@@ -29,84 +23,32 @@
 
         body {
             margin: 0;
-            font-family: 'DM Sans', sans-serif;
+            font-family: "Avenir Next", "Segoe UI", sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at top left, rgba(37, 99, 235, 0.14), transparent 28%),
-                radial-gradient(circle at top right, rgba(15, 118, 110, 0.12), transparent 24%),
-                linear-gradient(180deg, #f9fbff 0%, var(--bg) 56%, #eef3f9 100%);
+                radial-gradient(circle at top left, rgba(178, 74, 46, 0.16), transparent 30%),
+                linear-gradient(180deg, #faf7f1 0%, var(--bg) 100%);
         }
 
         main {
-            width: min(1100px, calc(100% - 32px));
+            width: min(960px, calc(100% - 32px));
             margin: 0 auto;
-            padding: 28px 0 72px;
-        }
-
-        .topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 18px;
-        }
-
-        .brand {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-        }
-
-        .topbar-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .topbar-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 42px;
-            padding: 0 16px;
-            border-radius: 999px;
-            border: 1px solid var(--surface-border);
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
+            padding: 56px 0 72px;
         }
 
         .hero {
-            position: relative;
             margin-bottom: 28px;
-            padding: 32px;
+            padding: 28px;
             border: 1px solid var(--surface-border);
-            border-radius: 32px;
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.84)),
-                linear-gradient(120deg, rgba(37, 99, 235, 0.06), rgba(15, 118, 110, 0.05));
+            border-radius: 28px;
+            background: var(--surface);
             box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, rgba(37, 99, 235, 0.06), transparent 42%, rgba(15, 118, 110, 0.07));
-            pointer-events: none;
-        }
-
-        .hero > * {
-            position: relative;
-            z-index: 1;
+            backdrop-filter: blur(12px);
         }
 
         .eyebrow {
             display: inline-flex;
-            padding: 8px 14px;
+            padding: 6px 12px;
             border-radius: 999px;
             background: var(--accent-soft);
             color: var(--accent);
@@ -117,49 +59,17 @@
         }
 
         h1 {
-            max-width: 12ch;
-            margin: 18px 0 14px;
-            font-size: clamp(2.4rem, 5vw, 4rem);
-            line-height: 0.96;
-            letter-spacing: -0.05em;
+            margin: 16px 0 12px;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            line-height: 0.98;
         }
 
         .hero p {
-            max-width: 44rem;
+            max-width: 42rem;
             margin: 0;
             color: var(--muted);
-            font-size: 1.02rem;
-            line-height: 1.7;
-        }
-
-        .hero-summary {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 24px;
-            padding: 0;
-            list-style: none;
-        }
-
-        .hero-summary-card {
-            list-style: none;
-            padding: 18px;
-            border-radius: 20px;
-            border: 1px solid var(--surface-border);
-            background: rgba(255, 255, 255, 0.78);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .hero-summary-card strong {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 0.92rem;
-        }
-
-        .hero-summary-card span {
-            color: var(--muted);
-            font-size: 0.94rem;
-            line-height: 1.55;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         #updates {
@@ -168,87 +78,42 @@
         }
 
         .update-card {
-            position: relative;
-            padding: 24px 24px 24px 28px;
+            padding: 24px;
             border: 1px solid var(--surface-border);
-            border-radius: 26px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.88));
-            box-shadow: var(--shadow-soft);
-            overflow: hidden;
-        }
-
-        .update-card::before {
-            content: '';
-            position: absolute;
-            top: 16px;
-            bottom: 16px;
-            left: 0;
-            width: 5px;
-            border-radius: 0 999px 999px 0;
-            background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+            border-radius: 24px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
         }
 
         .update-meta {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
             gap: 10px 14px;
-            margin-bottom: 14px;
-        }
-
-        .version-chip,
-        .date-chip {
-            display: inline-flex;
-            align-items: center;
-            min-height: 34px;
-            padding: 0 12px;
-            border-radius: 999px;
-            font-size: 0.88rem;
-            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--muted);
+            font-size: 0.92rem;
         }
 
         .version-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
             background: var(--accent-soft);
             color: var(--accent);
-        }
-
-        .date-chip {
-            background: rgba(15, 23, 42, 0.05);
-            color: var(--muted);
+            font-weight: 700;
         }
 
         h2 {
-            margin: 0 0 14px;
-            font-size: 1.45rem;
-            letter-spacing: -0.03em;
+            margin: 0 0 12px;
+            font-size: 1.35rem;
         }
 
-        .update-notes {
-            display: grid;
-            gap: 10px;
+        ul {
             margin: 0;
-            padding: 0;
-            list-style: none;
-            color: var(--muted);
-        }
-
-        .update-notes li {
-            position: relative;
             padding-left: 18px;
-            line-height: 1.65;
-        }
-
-        .update-notes li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.7em;
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
-            transform: translateY(-50%);
+            color: var(--muted);
+            line-height: 1.6;
         }
 
         .status {
@@ -258,56 +123,33 @@
             color: var(--muted);
             text-align: center;
             border: 1px solid var(--surface-border);
-            box-shadow: var(--shadow-soft);
-        }
-
-        @media (max-width: 860px) {
-            .hero-summary {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 640px) {
             main {
-                width: min(100% - 20px, 1100px);
-                padding-top: 18px;
-            }
-
-            .topbar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .topbar-links {
-                flex-direction: column;
-            }
-
-            .topbar-links a {
-                width: 100%;
+                width: min(100% - 20px, 960px);
+                padding-top: 24px;
             }
 
             .hero,
             .update-card,
             .status {
-                padding: 22px;
-                border-radius: 22px;
-            }
-
-            .update-card {
-                padding-left: 26px;
+                padding: 20px;
+                border-radius: 20px;
             }
         }
     </style>
 </head>
 <body>
     <main>
-        <div class="topbar">
-            <a class="brand" href="index.html">ScanPlanHVAC</a>
-            <div class="topbar-links">
-                <a href="mailto:support@scanplanhvac.com">Contact Support</a>
-                <a href="index.html">Back to Homepage</a>
-            </div>
-        </div>
+        <section class="hero">
+            <div class="eyebrow">Product Updates</div>
+            <h1>What’s New in Scan Plan HVAC</h1>
+            <p>
+                A customer-facing summary of recent improvements. This page intentionally shows only
+                curated release information.
+            </p>
+        </section>
 
         <section id="updates" aria-live="polite">
             <div class="status">Loading updates…</div>
@@ -377,10 +219,10 @@
                 article.innerHTML = `
                     <div class="update-meta">
                         <span class="version-chip">Version ${escapeHTML(entry.version)}</span>
-                        <span class="date-chip">${escapeHTML(entry.date)}</span>
+                        <span>${escapeHTML(entry.date)}</span>
                     </div>
                     <h2>${escapeHTML(entry.title)}</h2>
-                    <ul class="update-notes">${notes}</ul>
+                    <ul>${notes}</ul>
                 `;
 
                 updatesContainer.appendChild(article);
