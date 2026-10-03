@@ -190,7 +190,7 @@
         <section class="hero">
             <div class="eyebrow">Privacy Policy</div>
             <h1>Privacy Policy</h1>
-            <p class="meta">ScanPlanHVAC for iOS · Effective date: April 7, 2026</p>
+            <p class="meta">ScanPlanHVAC for iOS · Effective date: October 3, 2026</p>
             <p class="lead">
                 ScanPlanHVAC is an HVAC load calculation, floor plan, and building analysis tool that uses your device's LiDAR sensor to scan rooms, generate measurements, produce reports, and support energy modeling features. This policy explains what data the app processes, how it is used, and how it is handled.
             </p>
@@ -203,26 +203,61 @@
                 <ul>
                     <li><strong>Room scan data</strong> — 3D point clouds, meshes, room geometry, and measurements captured by your device's LiDAR sensor and Apple ARKit framework.</li>
                     <li><strong>Project information</strong> — Project names, addresses, map-selected locations, latitude/longitude coordinates, room names, building envelope details, equipment inputs, energy-modeling inputs, and other values you enter or confirm manually.</li>
+                    <li><strong>Information about your customers</strong> — Details you choose to enter about the people and properties you work for, such as a homeowner's name, property and mailing addresses, email address, phone number, utility bills and fuel usage, and information entered into rebate or incentive forms.</li>
                     <li><strong>Device orientation</strong> — Compass heading data used solely to determine wall orientation and related directional references.</li>
+                    <li><strong>Cloud account information (only if you use Cloud Sync)</strong> — The email address and password you use to create a Cloud Sync account, and an account identifier assigned to it. Passwords are stored by our cloud provider in hashed form; we cannot see them.</li>
                 </ul>
             </section>
 
             <section class="section">
                 <h2>2. How Data Is Stored</h2>
-                <p>Scan data, project data, and reports are stored locally on your device. The App does not transmit or store your scan data, project files, or reports on the developer's servers.</p>
-                <p>The App may use addresses, map-selected locations, coordinates, and environmental inputs to request related data such as weather information needed for modeling and projection features. This does not change where your project data is stored.</p>
+                <p>By default, scan data, project data, and reports are stored locally on your device only.</p>
+                <p>If you choose to sign in to Cloud Sync, a copy of your data is also stored in your private cloud account so you can open it on another device and in the web portal (see Section 3). If you never create a Cloud Sync account, nothing in this section changes: your projects stay on your device.</p>
+                <p>The App may use addresses, map-selected locations, coordinates, and environmental inputs to request related data such as weather information needed for modeling and projection features.</p>
             </section>
 
             <section class="section">
-                <h2>3. Third-Party Services</h2>
+                <h2>3. Cloud Sync &amp; Web Portal (Optional)</h2>
+                <p>Cloud Sync is optional and off until you create an account and sign in under Settings → Cloud Sync. When you are signed in, the App stores the following in your cloud account:</p>
+                <ul>
+                    <li><strong>Projects</strong> — the full project data you create or enter in the App, including rooms, measurements, floor plans, envelope details, equipment selections, fuel prices, and analysis settings.</li>
+                    <li><strong>3D scan files</strong> — the room scan models captured with your device.</li>
+                    <li><strong>Reports and results</strong> — PDF reports and calculated results generated for your projects.</li>
+                    <li><strong>Weather data</strong> — historical weather the App retrieved for your project locations.</li>
+                </ul>
+                <p>Because projects can contain information about your customers (see Section 1), that information is stored in your cloud account along with the rest of the project, including in generated reports and completed rebate forms. Photos you attach to projects are not stored in your cloud account.</p>
+                <p>Your data is stored with our cloud infrastructure provider, Supabase, and is protected by access rules so that only your signed-in account can read or change it. Data is sent over encrypted (HTTPS) connections.</p>
+                <p>You can view your synced projects, results, and reports on a computer through the ScanPlanHVAC web portal at <a href="https://scanplanhvac.com/portal/">scanplanhvac.com/portal</a>, using the same email and password.</p>
+                <p>We do not sell your data, share it with other users, or use it for advertising. We access account data only as needed to operate, secure, and support the service, or when required by law.</p>
+            </section>
+
+            <section class="section">
+                <h2>4. Information You Enter About Others</h2>
+                <p>ScanPlanHVAC is a professional tool, and you may enter personal information about your customers or other people while using it. We store and process that information only on your behalf and only to provide the App's features to you. We do not contact, market to, or sell information about the people in your projects.</p>
+                <p>You are responsible for having the right to collect and enter that information, for using it in line with the laws that apply to you, and for honoring any request from those people to access or delete it. You can edit or delete it in the App at any time; if you use Cloud Sync, deleting it in the App also removes it from your cloud account on the next sync.</p>
+            </section>
+
+            <section class="section">
+                <h2>5. AI-Assisted Features</h2>
+                <p>Some optional features use artificial intelligence to read documents and images or to answer questions. When you choose to use one of these features, the content needed for that request is sent from the App to our server and then to our AI provider, OpenAI, to produce the result:</p>
+                <ul>
+                    <li><strong>Fuel and utility bill entry</strong> — text read from a bill photo or PDF on your device.</li>
+                    <li><strong>Floor plan import</strong> — images of the floor plan pages you select.</li>
+                    <li><strong>Heat loss report import</strong> — text from the load calculation report PDF you select.</li>
+                </ul>
+                <p>These documents can contain personal information, such as a customer's name, address, or utility account details. Content is sent only when you start one of these features, is used only to return the result to you, and is not used to train AI models under our provider's API terms. Our AI provider may keep request data for a limited period for abuse monitoring as described in its policies. If you do not want a document processed this way, enter the information manually instead.</p>
+            </section>
+
+            <section class="section">
+                <h2>6. Third-Party Services</h2>
                 <p>The App may use third-party services such as Apple Maps and weather data providers to support address search, map display, location selection, energy modeling, system projections, and performance estimates.</p>
                 <p>These services may receive limited technical information necessary to process requests, such as search terms, selected addresses, selected coordinates, IP address, or basic device and network information. The App does not send user-generated room scans, project reports, or LiDAR models to these services.</p>
                 <p>The App does not use third-party analytics, advertising, or tracking services.</p>
-                <p>In a future version, the App may offer optional cloud storage or syncing features. If those features are introduced, this Privacy Policy will be updated to describe what data is transmitted, how it is stored, and what controls are available to you. Any cloud features will be optional.</p>
+                <p>If you use Cloud Sync, your account and synced data are processed by Supabase as our cloud provider, as described in Section 3.</p>
             </section>
 
             <section class="section">
-                <h2>4. Permissions</h2>
+                <h2>7. Permissions</h2>
                 <p>The App may request the following device permissions:</p>
                 <ul>
                     <li><strong>Camera &amp; LiDAR</strong> — Required to scan rooms and capture 3D measurements.</li>
@@ -230,22 +265,24 @@
             </section>
 
             <section class="section">
-                <h2>5. Data Retention &amp; Deletion</h2>
-                <p>Because project data is stored locally on your device, you control its retention. You can delete projects, rooms, and related data within the App. Uninstalling the App will remove locally stored App data from your device, subject to your device and backup settings.</p>
+                <h2>8. Data Retention &amp; Deletion</h2>
+                <p>You control the data stored on your device. You can delete projects, rooms, and related data within the App. Uninstalling the App will remove locally stored App data from your device, subject to your device and backup settings.</p>
+                <p>If you use Cloud Sync, your cloud data is kept while your account exists. Deleting a project in the App also removes it from your cloud account the next time the App syncs. Signing out stops syncing and leaves your projects on the device.</p>
+                <p>You can permanently delete your cloud account at any time in the App under Settings → Cloud Sync → Delete Account. This removes your account and all of your synced projects, scan files, reports, and weather data from the cloud. Projects on your device are not affected. You can also request deletion by emailing <a href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a>.</p>
             </section>
 
             <section class="section">
-                <h2>6. Children's Privacy</h2>
+                <h2>9. Children's Privacy</h2>
                 <p>The App is not directed to children under the age of 13 and does not knowingly collect personal information from children.</p>
             </section>
 
             <section class="section">
-                <h2>7. Changes to This Policy</h2>
+                <h2>10. Changes to This Policy</h2>
                 <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised effective date. Continued use of the App after an updated policy becomes effective constitutes acceptance of the revised policy.</p>
             </section>
 
             <section class="section">
-                <h2>8. Contact</h2>
+                <h2>11. Contact</h2>
                 <p>If you have questions about this Privacy Policy, please contact:</p>
                 <p><a href="mailto:support@scanplanhvac.com">support@scanplanhvac.com</a></p>
             </section>
