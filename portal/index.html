@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>ScanPlanHVAC — Projects &amp; Reports</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-mark">⌂</span>
+            <span>ScanPlanHVAC</span>
+        </div>
+        <div id="account" class="account hidden">
+            <span id="account-email"></span>
+            <button id="sign-out" class="link-button">Sign out</button>
+        </div>
+    </header>
+
+    <main id="app">
+        <!-- Sign in -->
+        <section id="view-signin" class="card narrow hidden">
+            <h1>Sign in</h1>
+            <p class="muted">Use the same email and password as Cloud Sync in the iPhone app.</p>
+            <form id="signin-form">
+                <label>Email
+                    <input id="signin-email" type="email" autocomplete="username" required>
+                </label>
+                <label>Password
+                    <input id="signin-password" type="password" autocomplete="current-password" required>
+                </label>
+                <button type="submit" class="primary">Sign in</button>
+            </form>
+            <button id="forgot" class="link-button">Forgot password?</button>
+            <p id="signin-message" class="message"></p>
+            <p class="muted small">New here? Create your account in the app under Settings → Cloud Sync.
+                Projects are created on the iPhone; this site lets you open them and download their reports.</p>
+        </section>
+
+        <!-- New password (reached from a password-reset email) -->
+        <section id="view-recovery" class="card narrow hidden">
+            <h1>Set a new password</h1>
+            <form id="recovery-form">
+                <label>New password
+                    <input id="recovery-password" type="password" autocomplete="new-password" minlength="6" required>
+                </label>
+                <label>Confirm password
+                    <input id="recovery-confirm" type="password" autocomplete="new-password" minlength="6" required>
+                </label>
+                <button type="submit" class="primary">Save password</button>
+            </form>
+            <p id="recovery-message" class="message"></p>
+        </section>
+
+        <!-- Project list -->
+        <section id="view-projects" class="hidden">
+            <div class="section-head">
+                <h1>Projects</h1>
+                <input id="project-search" type="search" placeholder="Search projects…">
+            </div>
+            <p id="projects-empty" class="muted hidden">No projects yet. Create one in the iPhone app and it will appear here after it syncs.</p>
+            <ul id="project-list" class="project-list"></ul>
+        </section>
+
+        <!-- Project detail -->
+        <section id="view-project" class="hidden">
+            <button id="back" class="link-button">← All projects</button>
+            <div class="card">
+                <h1 id="project-name"></h1>
+                <p id="project-address" class="muted"></p>
+                <dl id="project-facts" class="facts"></dl>
+            </div>
+
+            <div class="card">
+                <h2>Load results</h2>
+                <p id="results-empty" class="muted small hidden">Load results appear here after the project syncs from the app.</p>
+                <dl id="results-facts" class="facts"></dl>
+            </div>
+
+            <div class="card">
+                <h2>Rooms</h2>
+                <p id="rooms-empty" class="muted small hidden">This project has no rooms yet.</p>
+                <div class="table-wrap">
+                    <table id="rooms-table" class="data-table hidden">
+                        <thead>
+                            <tr>
+                                <th>Room</th>
+                                <th>Type</th>
+                                <th>Floor</th>
+                                <th class="num">Area (sq ft)</th>
+                                <th class="num">Ceiling (ft)</th>
+                                <th class="num">Windows</th>
+                                <th class="num">Doors</th>
+                                <th class="num">Heating (BTU/h)</th>
+                                <th class="num">Cooling (BTU/h)</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-head">
+                    <h2>Reports</h2>
+                    <button id="refresh-reports" class="link-button">Refresh</button>
+                </div>
+                <p class="muted small">The core reports update automatically whenever the project changes in the app. Reports from individual analysis screens appear once they've been opened there.</p>
+                <p id="reports-empty" class="muted hidden">No reports yet. They upload the next time the app syncs this project.</p>
+                <ul id="report-list" class="report-list"></ul>
+            </div>
+
+            <div class="card">
+                <h2>Weather data</h2>
+                <p id="weather-status" class="muted small"></p>
+            </div>
+        </section>
+
+        <p id="global-error" class="error hidden"></p>
+    </main>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

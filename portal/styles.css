@@ -1,0 +1,144 @@
+:root {
+    --accent: #007AFF;
+    --text: #1c1c1e;
+    --muted: #6e6e73;
+    --border: #e5e5ea;
+    --bg: #f5f5f7;
+    --card: #ffffff;
+    --error: #c62828;
+    --success: #2e7d32;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5;
+}
+
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.brand-mark { color: var(--accent); font-size: 1.25rem; }
+.account { display: flex; align-items: center; gap: 16px; color: var(--muted); font-size: 0.9rem; }
+
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+
+h1 { font-size: 1.5rem; margin: 0 0 8px; }
+h2 { font-size: 1.125rem; margin: 0 0 8px; }
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+}
+.card.narrow { max-width: 420px; margin: 48px auto; }
+
+label { display: block; margin: 12px 0 4px; font-size: 0.9rem; color: var(--muted); }
+input[type="email"], input[type="password"], input[type="search"] {
+    width: 100%;
+    padding: 10px 12px;
+    font: inherit;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+}
+input[type="search"] { max-width: 280px; }
+
+button { font: inherit; cursor: pointer; }
+.primary {
+    width: 100%;
+    margin-top: 16px;
+    padding: 10px;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.primary:disabled { opacity: 0.6; cursor: default; }
+.link-button {
+    background: none;
+    border: none;
+    color: var(--accent);
+    padding: 0;
+    margin-top: 12px;
+}
+.message { min-height: 1.5em; font-size: 0.9rem; }
+.message.error, .error { color: var(--error); }
+.message.success { color: var(--success); }
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.project-list, .report-list { list-style: none; margin: 0; padding: 0; }
+
+.project-list li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+.project-list li:hover { border-color: var(--accent); }
+.project-title { font-weight: 600; }
+.project-meta { color: var(--muted); font-size: 0.875rem; }
+.chevron { color: var(--muted); }
+
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 12px 0 0; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+
+.table-wrap { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.data-table th, .data-table td { padding: 8px 10px; border-top: 1px solid var(--border); text-align: left; white-space: nowrap; }
+.data-table thead th { border-top: none; color: var(--muted); font-weight: 500; }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table tfoot td { font-weight: 600; }
+
+.report-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+}
+.report-list li:first-child { border-top: none; }
+.report-name { font-weight: 500; }
+.report-meta { color: var(--muted); font-size: 0.875rem; }
+.download {
+    padding: 6px 14px;
+    color: var(--accent);
+    background: #fff;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    white-space: nowrap;
+}
+.download:disabled { opacity: 0.5; }
