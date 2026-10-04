@@ -36,7 +36,7 @@
             <button id="forgot" class="link-button">Forgot password?</button>
             <p id="signin-message" class="message"></p>
             <p class="muted small">New here? Create your account in the app under Settings → Cloud Sync.
-                Projects are created on the iPhone; this site lets you open them and download their reports.</p>
+                Projects are created on the iPhone; this site lets you open them, review every analysis, and download reports.</p>
         </section>
 
         <!-- New password (reached from a password-reset email) -->
@@ -73,53 +73,46 @@
                 <dl id="project-facts" class="facts"></dl>
             </div>
 
-            <div class="card">
-                <h2>Load results</h2>
-                <p id="results-empty" class="muted small hidden">Load results appear here after the project syncs from the app.</p>
-                <dl id="results-facts" class="facts"></dl>
-            </div>
+            <nav id="tabs" class="tabs" aria-label="Analysis sections">
+                <button class="tab active" data-tab="overview">Overview</button>
+                <button class="tab" data-tab="loads">HVAC Loads</button>
+                <button class="tab" data-tab="energy">Energy Analysis</button>
+                <button class="tab" data-tab="comfort">Comfort Performance</button>
+                <button class="tab" data-tab="dhw">Hot Water</button>
+                <button class="tab" data-tab="intelligence">Building Intelligence</button>
+                <button class="tab" data-tab="reports">Reports</button>
+            </nav>
 
-            <div class="card">
-                <h2>Rooms</h2>
-                <p id="rooms-empty" class="muted small hidden">This project has no rooms yet.</p>
-                <div class="table-wrap">
-                    <table id="rooms-table" class="data-table hidden">
-                        <thead>
-                            <tr>
-                                <th>Room</th>
-                                <th>Type</th>
-                                <th>Floor</th>
-                                <th class="num">Area (sq ft)</th>
-                                <th class="num">Ceiling (ft)</th>
-                                <th class="num">Windows</th>
-                                <th class="num">Doors</th>
-                                <th class="num">Heating (BTU/h)</th>
-                                <th class="num">Cooling (BTU/h)</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+            <p id="analysis-status" class="muted small"></p>
+
+            <div id="panel-overview" class="panel"></div>
+            <div id="panel-loads" class="panel hidden"></div>
+            <div id="panel-energy" class="panel hidden"></div>
+            <div id="panel-comfort" class="panel hidden"></div>
+            <div id="panel-dhw" class="panel hidden"></div>
+            <div id="panel-intelligence" class="panel hidden"></div>
+
+            <div id="panel-reports" class="panel hidden">
+                <div class="card">
+                    <div class="section-head">
+                        <h2>Reports</h2>
+                        <button id="refresh-reports" class="link-button">Refresh</button>
+                    </div>
+                    <p class="muted small">The core reports update automatically whenever the project changes in the app. Reports from individual analysis screens appear once they've been opened there.</p>
+                    <p id="reports-empty" class="muted hidden">No reports yet. They upload the next time the app syncs this project.</p>
+                    <ul id="report-list" class="report-list"></ul>
                 </div>
-            </div>
-
-            <div class="card">
-                <div class="section-head">
-                    <h2>Reports</h2>
-                    <button id="refresh-reports" class="link-button">Refresh</button>
+                <div class="card">
+                    <h2>Weather data</h2>
+                    <p id="weather-status" class="muted small"></p>
                 </div>
-                <p class="muted small">The core reports update automatically whenever the project changes in the app. Reports from individual analysis screens appear once they've been opened there.</p>
-                <p id="reports-empty" class="muted hidden">No reports yet. They upload the next time the app syncs this project.</p>
-                <ul id="report-list" class="report-list"></ul>
-            </div>
-
-            <div class="card">
-                <h2>Weather data</h2>
-                <p id="weather-status" class="muted small"></p>
             </div>
         </section>
 
         <p id="global-error" class="error hidden"></p>
     </main>
+
+    <div id="tooltip" class="tooltip hidden" role="tooltip"></div>
 
     <script type="module" src="app.js"></script>
 </body>
