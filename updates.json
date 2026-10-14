@@ -1,14 +1,14 @@
 [
   {
-    "version": "1.5.11",
-    "date": "2026-10-01",
+    "version": "1.5.12",
+    "date": "2026-10-14",
     "title": "Performance & Analysis Improvements",
     "notes": [
       "Improved heating and cooling calculations.",
       "Updated domestic hot water sizing and planning tools.",
       "Improved gas piping sizing guidance.",
-      "Expanded supported equipment data and comparisons.",
-      "Refined reports and export output."
+      "Refined reports and export output.",
+      "Refined parts of the app interface and workflow."
     ]
   }
 ]
