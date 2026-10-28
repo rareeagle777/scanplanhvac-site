@@ -1,7 +1,7 @@
 [
   {
     "version": "1.6.1",
-    "date": "2026-10-25",
+    "date": "2026-10-27",
     "title": "Performance & Analysis Improvements",
     "notes": [
       "Improved heating and cooling calculations.",
