@@ -1,14 +1,14 @@
 [
   {
-    "version": "1.6.1",
-    "date": "2026-10-27",
+    "version": "1.6.2",
+    "date": "2026-10-29",
     "title": "Performance & Analysis Improvements",
     "notes": [
       "Improved heating and cooling calculations.",
-      "Improved gas piping sizing guidance.",
       "Expanded supported equipment data and comparisons.",
       "Refined reports and export output.",
-      "Refined parts of the app interface and workflow."
+      "Refined parts of the app interface and workflow.",
+      "Improved room scanning and floor plan workflows."
     ]
   }
 ]
