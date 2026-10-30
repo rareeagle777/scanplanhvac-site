@@ -5,10 +5,10 @@
     "title": "Performance & Analysis Improvements",
     "notes": [
       "Improved heating and cooling calculations.",
-      "Expanded supported equipment data and comparisons.",
       "Refined reports and export output.",
       "Refined parts of the app interface and workflow.",
-      "Improved room scanning and floor plan workflows."
+      "Improved room scanning and floor plan workflows.",
+      "Improved stability and overall app reliability."
     ]
   }
 ]
