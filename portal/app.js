@@ -186,9 +186,11 @@ async function openProject(project) {
     show("view-project");
     showTab("overview");
 
-    const [summary, analysis] = await Promise.all([
-        downloadJSON(`_summary.json`), downloadJSON(`_analysis.json`), loadReports(), loadWeatherStatus(),
+    $("submittal-list").innerHTML = "";
+    const [summary, analysis, documents] = await Promise.all([
+        downloadJSON(`_summary.json`), downloadJSON(`_analysis.json`), downloadJSON(`_documents.json`), loadReports(), loadWeatherStatus(),
     ]);
+    renderSubmittals(documents);
     currentSummary = summary;
     currentAnalysis = analysis;
     if (analysis?.generatedAt) {
@@ -611,6 +613,46 @@ async function loadReports() {
         button.addEventListener("click", () => downloadReport(`${folder}/${file.name}`, file.name, button));
         li.append(button);
         list.append(li);
+    }
+}
+
+/// Submittal links per saved heat pump system, from `_documents.json`. Links only — the PDFs
+/// live on the manufacturer's site.
+function renderSubmittals(documents) {
+    const container = $("submittal-list");
+    container.innerHTML = "";
+    const systems = documents?.systems ?? [];
+    if (!documents) { note(container, "Submittal links appear here after the project syncs from the app."); return; }
+    if (!systems.length) { note(container, "This project has no saved heat pump system yet."); return; }
+    for (const system of systems) {
+        const heading = document.createElement("h3");
+        heading.textContent = system.title;
+        container.append(heading);
+        const list = document.createElement("ul");
+        list.className = "report-list";
+        for (const unit of system.units ?? []) {
+            const li = document.createElement("li");
+            const info = document.createElement("div");
+            info.innerHTML = `<div class="report-name">${escape(unit.sku)}</div>
+                <div class="report-meta">${escape([unit.role, unit.name].filter(Boolean).join(" · "))}</div>`;
+            const links = document.createElement("div");
+            links.className = "submittal-links";
+            if (unit.submittals?.length) {
+                for (const doc of unit.submittals) {
+                    const a = document.createElement("a");
+                    a.href = doc.url;
+                    a.target = "_blank";
+                    a.rel = "noopener noreferrer";
+                    a.textContent = doc.name;
+                    links.append(a);
+                }
+            } else {
+                links.innerHTML = `<span class="report-meta">No submittal published</span>`;
+            }
+            li.append(info, links);
+            list.append(li);
+        }
+        container.append(list);
     }
 }
 

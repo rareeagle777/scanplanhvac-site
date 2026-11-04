@@ -133,6 +133,8 @@ button { font: inherit; cursor: pointer; }
 .report-list li:first-child { border-top: none; }
 .report-name { font-weight: 500; }
 .report-meta { color: var(--muted); font-size: 0.875rem; }
+.submittal-links { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; text-align: right; }
+#submittal-list h3 { margin: 16px 0 4px; font-size: 1rem; }
 .download {
     padding: 6px 14px;
     color: var(--accent);
